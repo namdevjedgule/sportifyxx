@@ -77,7 +77,7 @@ function loadFooter(prefix) {
 
         .then(html => {
 
-           footer.innerHTML = html.trim();
+            footer.innerHTML = html.trim();
 
         })
 
@@ -91,27 +91,31 @@ function loadFooter(prefix) {
 
 function initNavbar() {
 
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+    const menuBtn = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
     const siteHeader = document.getElementById("siteHeader");
 
-    if (!menuBtn || !navLinks) return;
+    if (!menuBtn || !navMenu || !siteHeader) return;
 
     menuBtn.addEventListener("click", () => {
 
-        navLinks.classList.toggle("show");
+        const isOpen = siteHeader.classList.toggle("mobile-open");
 
-        menuBtn.classList.toggle("active");
+        menuBtn.classList.toggle("open", isOpen);
+
+        menuBtn.setAttribute("aria-expanded", isOpen);
 
     });
 
-    navLinks.querySelectorAll("a").forEach(link => {
+    navMenu.querySelectorAll("a").forEach(link => {
 
         link.addEventListener("click", () => {
 
-            navLinks.classList.remove("show");
+            siteHeader.classList.remove("mobile-open");
 
-            menuBtn.classList.remove("active");
+            menuBtn.classList.remove("open");
+
+            menuBtn.setAttribute("aria-expanded", "false");
 
         });
 
@@ -125,7 +129,7 @@ function initNavbar() {
 
     const currentPath = window.location.pathname;
 
-    navLinks.querySelectorAll("a").forEach(link => {
+    navMenu.querySelectorAll(".nav-links a").forEach(link => {
         let href = link.getAttribute("href");
         if (href === "/") {
             if (

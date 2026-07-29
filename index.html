@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportifyX — Redefining Sports Culture</title>
+  <meta name="description"
+    content="Professional sports coaching, event management, and grassroots development across football, cricket, and badminton in India's Tier I & Tier II cities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body id="top">
+
+  <div id="navbar"></div>
+
+  <main>
+    <section class="hero">
+      <div class="pitch-lines"></div>
+      <div class="centre-circle"></div>
+      <div class="container hero-inner">
+        <span class="eyebrow">Coaching · Events · Grassroots Development</span>
+        <h1>Redefining <span class="accent">Sports Culture</span>, City by City</h1>
+        <p class="hero-sub">15+ years building footballers, cricketers, and badminton players across India's Tier I
+          &amp; Tier II cities — from a child's first session to their first competition.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Find Your Sport</a>
+          <a href="#contact" class="btn btn-outline">See Upcoming Events</a>
+        </div>
+
+        <!-- Signature element: scoreboard sport switcher -->
+        <div class="scoreboard" id="scoreboard">
+          <div class="scoreboard-tabs">
+            <button class="tab active" data-sport="football">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7l4 3-1.5 4.5h-5L8 10z" />
+              </svg>
+              <span class="tab-label">Football</span>
+            </button>
+            <button class="tab" data-sport="cricket">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M5 19L17 7" />
+                <circle cx="18.5" cy="5.5" r="2.3" />
+                <path d="M5 19l-1 3 3-1" />
+              </svg>
+              <span class="tab-label">Cricket</span>
+            </button>
+            <button class="tab" data-sport="badminton">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="9" cy="9" r="5.5" />
+                <path d="M13 13l7 7M15 20l5-5" />
+              </svg>
+              <span class="tab-label">Badminton</span>
+            </button>
+          </div>
+
+          <div class="scoreboard-body scoreboard-panel" data-sport="football">
+            <div class="scoreboard-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7l4 3-1.5 4.5h-5L8 10z" />
+              </svg>
+            </div>
+            <div class="scoreboard-text">
+              <h3 id="sbTitle">Football Program</h3>
+              <p id="sbDesc">Technical foundations, small-sided games, and match-intelligence training for age-grouped
+                batches.</p>
+              <div class="scoreboard-meta">
+                <div><strong id="sbMeta1">U6–U19</strong>Age Groups</div>
+                <div><strong id="sbMeta2">11v11 / 7v7</strong>Formats</div>
+                <div><strong id="sbMeta3">Wk-day + Wknd</strong>Batches</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker-wrap">
+      <div class="ticker" id="ticker">
+        <span>
+          <b>15+ YEARS</b> ON THE FIELD ● <em>3 SPORTS</em>, ONE STANDARD ● TIER I &amp; TIER II CITIES ●
+          <b>GRASSROOTS</b> TO GLORY ● COACHING · EVENTS · COMMUNITY ●
+        </span>
+        <span>
+          <b>15+ YEARS</b> ON THE FIELD ● <em>3 SPORTS</em>, ONE STANDARD ● TIER I &amp; TIER II CITIES ●
+          <b>GRASSROOTS</b> TO GLORY ● COACHING · EVENTS · COMMUNITY ●
+        </span>
+      </div>
+    </div>
+
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-num" data-count="15" data-suffix="+">0</div>
+          <div class="stat-label">Years Coaching</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-num" data-count="3">0</div>
+          <div class="stat-label">Sport Disciplines</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-num" data-count="2">0</div>
+          <div class="stat-label">City Tiers Served</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-num" style="background:none;-webkit-text-fill-color:var(--text);color:var(--text);">G→E</div>
+          <div class="stat-label">Grassroots to Elite Pathway</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars" id="programs">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">What We Do</span></div>
+        <h2 class="section-title">Three Pillars, One Standard</h2>
+        <p class="section-sub">Every program we run — big or small — is built on the same structure: real curriculum,
+          real coaches, real follow-through.</p>
+        <div class="pillars-grid">
+          <div class="pillar-card p1 reveal">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.8 7.1 18.2l.9-5.5-4-3.9L9.5 8z" />
+              </svg></div>
+            <h3>Structured Coaching</h3>
+            <p>Individualized, age-appropriate plans across football, cricket, and badminton — built on a real
+              curriculum, not guesswork.</p>
+          </div>
+          <div class="pillar-card p2 reveal">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M8 21h8M12 17v4M6 4h12l-1 6a5 5 0 01-10 0z" />
+                <path d="M6 6H3a3 3 0 003 3M18 6h3a3 3 0 01-3 3" />
+              </svg></div>
+            <h3>Event Management</h3>
+            <p>From school tournaments to city-wide leagues, we plan and run sporting events that bring communities onto
+              the field.</p>
+          </div>
+          <div class="pillar-card p3 reveal">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 20V10M12 10c0-3.3 2.7-6 6-6-3.3 0-6 2.7-6 6zM12 14c0-3.3-2.7-6-6-6 3.3 0 6 2.7 6 6z" />
+              </svg></div>
+            <h3>Grassroots Development</h3>
+            <p>Talent doesn't only live in metros. We build sustained programs in Tier I &amp; Tier II cities, turning
+              first-timers into competitors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sports" id="sports">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">Our Disciplines</span></div>
+        <h2 class="section-title">Pick a Sport, Not a Compromise</h2>
+        <p class="section-sub">Each discipline runs on its own coaching philosophy — not a copy-pasted template
+          stretched across three sports.</p>
+        <div class="sports-grid">
+          <div class="sport-card football reveal">
+            <div class="sport-card-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7l4 3-1.5 4.5h-5L8 10z" />
+              </svg>
+              <h3>Football</h3>
+              <p>Ball mastery, positional understanding, and match fitness for every age group — from first touch to
+                first tournament.</p>
+              <a href="#contact" class="sport-link">Explore program <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+          </div>
+          <div class="sport-card cricket reveal">
+            <div class="sport-card-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M5 19L17 7" />
+                <circle cx="18.5" cy="5.5" r="2.3" />
+                <path d="M5 19l-1 3 3-1" />
+              </svg>
+              <h3>Cricket</h3>
+              <p>Batting technique, bowling mechanics, and match-reading — coached with the same discipline as any elite
+                academy.</p>
+              <a href="#contact" class="sport-link">Explore program <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+          </div>
+          <div class="sport-card badminton reveal">
+            <div class="sport-card-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="9" cy="9" r="5.5" />
+                <path d="M13 13l7 7M15 20l5-5" />
+              </svg>
+              <h3>Badminton</h3>
+              <p>Footwork, racket control, and rally intelligence — building speed and precision from the very first
+                rally.</p>
+              <a href="#contact" class="sport-link">Explore program <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY US ============ -->
+    <section class="why" id="why">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">Why SportifyX</span></div>
+        <h2 class="section-title">Built for the Long Game</h2>
+        <div class="why-grid">
+          <div class="why-item reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg></div>
+            <h4>Certified Coaches</h4>
+            <p>Every coach is trained on our own curriculum before stepping on the field.</p>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg></div>
+            <h4>Tier I &amp; II Reach</h4>
+            <p>We build where sporting infrastructure is usually an afterthought.</p>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 19V9M12 19V5M20 19v-6" />
+              </svg></div>
+            <h4>Structured Pathways</h4>
+            <p>A clear track from grassroots sessions to competitive-level readiness.</p>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="8" cy="9" r="3" />
+                <circle cx="17" cy="9" r="3" />
+                <path d="M2 20c0-3 2.7-5 6-5s6 2 6 5M13 15c3.3 0 6 2 6 5" />
+              </svg></div>
+            <h4>Community First</h4>
+            <p>Events and programs designed to bring whole neighborhoods onto the field.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <span class="eyebrow" style="justify-content:center;">Get Started</span>
+        <h2>Your City's Next Sporting Story Starts Here</h2>
+        <p>Whether it's a first trial session or a city-wide tournament, tell us what you're building — we'll help you
+          build it right.</p>
+        <a href="#" class="btn btn-primary">Start With a Free Trial Session</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+  <script src="/js/script.js"></script>
+</body>
+
+</html>

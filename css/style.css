@@ -1570,6 +1570,28 @@ footer {
   gap: 12px;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color .25s ease;
+}
+
+.footer-links a:hover {
+  color: var(--green);
+}
+
+.footer-links .divider {
+  color: rgba(255,255,255,.25);
+}
+
 @media (max-width:900px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;

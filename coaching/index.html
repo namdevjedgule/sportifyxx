@@ -7,25 +7,20 @@
   <title>Coaching Programs — SportifyX</title>
   <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
   <meta name="description"
-    content="SportifyX Multi-Sports Coaching Program in Pune — Cricket, Football, Badminton, Lawn Tennis, Karate, Lathi Kathi & Chess. Expert coaches, structured batches, all ages welcome.">
+    content="SportifyX Coaching Programs in Pune — Cricket, Football, Badminton, Lawn Tennis, Chess, Karate & Lathi Kathi. Coaching philosophy, methodology, age groups, weekly schedule, facilities, and benefits.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
   <style>
     .coach-hero {
-      padding: 160px 0 80px;
+      padding: 115px 0 80px;
       position: relative;
       overflow: hidden;
-      background:
-        radial-gradient(650px 420px at 85% 0%, rgba(0, 194, 255, .14), transparent 70%),
-        radial-gradient(600px 400px at 5% 30%, rgba(34, 197, 94, .14), transparent 70%),
-        var(--navy);
+      background: radial-gradient(600px 380px at 12% 0%, rgba(34, 197, 94, .16), transparent 70%), radial-gradient(600px 420px at 95% 40%, rgba(255, 107, 0, .12), transparent 70%), var(--navy);
     }
 
     .coach-hero-grid {
@@ -39,13 +34,13 @@
       font-family: var(--font-display);
       text-transform: uppercase;
       line-height: .98;
-      font-size: clamp(38px, 5.4vw, 68px);
+      font-size: clamp(38px, 5.4vw, 64px);
       letter-spacing: .005em;
-      margin: 16px 0 20px;
+      margin: 16px auto 14px;
     }
 
     .coach-hero h1 .accent {
-      background: var(--grad-cyan);
+      background: var(--grad-sport);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -64,15 +59,28 @@
       flex-wrap: wrap;
     }
 
-    .coach-cta-row .btn-outline {
-      border-color: rgba(255, 255, 255, .18);
-      color: var(--text);
+    .breadcrumb {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      font-family: var(--font-head);
+      font-size: 12.5px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-top: 24px;
     }
 
-    .coach-cta-row .btn-outline:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
-      background: rgba(0, 194, 255, .08);
+    .breadcrumb a:hover {
+      color: var(--green-2);
+    }
+
+    .breadcrumb .sep {
+      opacity: .5;
+    }
+
+    .breadcrumb .current {
+      color: var(--text);
     }
 
     /* Locker card — visual anchor of the hero */
@@ -113,89 +121,9 @@
       letter-spacing: .02em;
     }
 
-    .sports-offered {
-      padding: 90px 0 100px;
-    }
-
-    .kit-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .kit-card {
-      border-radius: 16px;
-      padding: 1px;
-      cursor: pointer;
-      transition: transform .3s ease;
-    }
-
-    .kit-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .kit-card.c-green {
-      background: var(--grad-sport);
-    }
-
-    .kit-card.c-orange {
-      background: var(--grad-energy);
-    }
-
-    .kit-card.c-cyan {
-      background: var(--grad-cyan);
-    }
-
-    .kit-card-inner {
-      background: var(--card);
-      border-radius: 15px;
-      padding: 26px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      height: 100%;
-      transition: background .3s ease;
-    }
-
-    .kit-card-inner svg {
-      width: 30px;
-      height: 30px;
-    }
-
-    .kit-card.c-green .kit-card-inner svg {
-      color: var(--green);
-    }
-
-    .kit-card.c-orange .kit-card-inner svg {
-      color: var(--orange);
-    }
-
-    .kit-card.c-cyan .kit-card-inner svg {
-      color: var(--cyan);
-    }
-
-    .kit-card-inner h3 {
-      font-size: 16.5px;
-      font-weight: 700;
-    }
-
-    .kit-card-inner p {
-      font-size: 13px;
-      color: var(--text-dim);
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height .3s ease, opacity .3s ease, margin .3s ease;
-    }
-
-    .kit-card.is-open .kit-card-inner p {
-      max-height: 80px;
-      opacity: 1;
-    }
-
-    /* --- Why choose us: gear-check list --- */
+    /* ============ WHY SPORTIFYX: GEAR CHECK ============ */
     .gear-check {
-      padding: 20px 0 100px;
+      padding: 90px 0 100px;
       background: var(--surface);
     }
 
@@ -255,117 +183,355 @@
       padding-top: 2px;
     }
 
-    /* --- Who can join: spectrum bar --- */
-    .who-join {
-      padding: 90px 0;
+    /* ============ COACHING PHILOSOPHY ============ */
+    .philosophy-sec {
+      padding: 100px 0;
     }
 
-    .who-inner {
-      max-width: 760px;
-      margin: 0 auto;
+    .philosophy-lead {
+      max-width: 720px;
+      margin: 0 auto 46px;
       text-align: center;
-    }
-
-    .who-inner p {
       color: var(--text-dim);
-      font-size: 16px;
-      margin-bottom: 50px;
-    }
-
-    .spectrum {
-      position: relative;
-      height: 6px;
-      border-radius: 6px;
-      background: var(--grad-sport);
-      margin: 0 20px;
-    }
-
-    .spectrum-points {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 18px;
-    }
-
-    .spectrum-point {
-      text-align: center;
-      font-family: var(--font-head);
-      font-size: 13px;
-      color: var(--text-dim);
-      max-width: 140px;
-    }
-
-    .spectrum-point strong {
-      display: block;
-      color: var(--text);
-      font-size: 14.5px;
-      margin-bottom: 4px;
-    }
-
-    .spectrum-dot {
-      position: absolute;
-      top: 50%;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--navy);
-      border: 3px solid var(--green);
-      transform: translate(-50%, -50%);
-    }
-
-    .spectrum-dot.mid {
-      left: 50%;
-      border-color: var(--orange);
-    }
-
-    .spectrum-dot.end {
-      left: 100%;
-      border-color: var(--cyan);
-    }
-
-    .spectrum-dot.start {
-      left: 0%;
-    }
-
-    /* --- Mission panel --- */
-    .mission {
-      padding: 20px 0 100px;
-    }
-
-    .mission-panel {
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: 22px;
-      padding: 2px;
-      background: var(--grad-energy);
-    }
-
-    .mission-panel-inner {
-      background: var(--navy-light);
-      border-radius: 20px;
-      padding: 56px 48px;
-      text-align: center;
-    }
-
-    .mission-tag {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: .01em;
-      font-size: clamp(24px, 3.6vw, 38px);
-      margin-bottom: 20px;
-      background: var(--grad-energy);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .mission-panel-inner p {
-      color: var(--text-dim);
-      max-width: 620px;
-      margin: 0 auto;
       font-size: 15.5px;
     }
 
-    /* --- Admission / contact band --- */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .philosophy-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .philosophy-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .philosophy-card-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .philosophy-card:nth-child(1) .philosophy-card-icon {
+      background: rgba(34, 197, 94, .14);
+      color: var(--green);
+    }
+
+    .philosophy-card:nth-child(2) .philosophy-card-icon {
+      background: rgba(255, 107, 0, .14);
+      color: var(--orange);
+    }
+
+    .philosophy-card:nth-child(3) .philosophy-card-icon {
+      background: rgba(0, 194, 255, .14);
+      color: var(--cyan);
+    }
+
+    .philosophy-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .philosophy-card p {
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    /* ============ TRAINING METHODOLOGY ============ */
+    .method-sec {
+      padding: 20px 0 100px;
+      background: var(--surface);
+    }
+
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+
+    .method-step {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 26px 22px;
+      position: relative;
+    }
+
+    .method-step__num {
+      font-family: var(--font-display);
+      font-size: 30px;
+      color: rgba(255, 255, 255, .12);
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      line-height: 1;
+    }
+
+    .method-step h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .method-step p {
+      font-size: 13.5px;
+      color: var(--text-dim);
+      position: relative;
+      z-index: 1;
+    }
+
+    .method-step:nth-child(1) {
+      border-top: 3px solid var(--green);
+    }
+
+    .method-step:nth-child(2) {
+      border-top: 3px solid var(--orange);
+    }
+
+    .method-step:nth-child(3) {
+      border-top: 3px solid var(--cyan);
+    }
+
+    .method-step:nth-child(4) {
+      border-top: 3px solid var(--yellow);
+    }
+
+    /* ============ AGE GROUPS ============ */
+    .agegroup-sec {
+      padding: 100px 0;
+    }
+
+    .agegroup-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .agegroup-chip {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .agegroup-chip strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--green-2);
+      margin-bottom: 6px;
+    }
+
+    .agegroup-chip span.tag {
+      display: block;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .agegroup-chip p {
+      font-size: 12.5px;
+      color: var(--text-dim);
+    }
+
+    /* ============ WEEKLY SCHEDULE (timetable) ============ */
+    .schedule-sec {
+      padding: 20px 0 100px;
+      background: var(--surface);
+    }
+
+    .timetable {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .timetable th,
+    .timetable td {
+      padding: 16px 20px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .timetable th {
+      background: var(--navy-light);
+      color: var(--text-dim);
+      font-family: var(--font-head);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11.5px;
+      letter-spacing: .05em;
+    }
+
+    .timetable td {
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      font-size: 13.5px;
+    }
+
+    .timetable td:first-child {
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .tt-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tt-tag {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 12px;
+      padding: 5px 11px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .tt-tag.g {
+      background: rgba(34, 197, 94, .14);
+      color: var(--green-2);
+    }
+
+    .tt-tag.o {
+      background: rgba(255, 107, 0, .14);
+      color: var(--orange);
+    }
+
+    .tt-tag.c {
+      background: rgba(0, 194, 255, .14);
+      color: var(--cyan);
+    }
+
+    .schedule-note {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 13px;
+      margin-top: 18px;
+    }
+
+    /* ============ FACILITIES ============ */
+    .facilities-sec {
+      padding: 100px 0;
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .facility-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .facility-card-visual {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .facility-card-visual svg {
+      width: 34px;
+      height: 34px;
+      color: var(--navy);
+    }
+
+    .facility-card-body {
+      padding: 18px 20px 22px;
+      background: var(--card);
+    }
+
+    .facility-card-body h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .facility-card-body p {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* ============ COACHING BENEFITS ============ */
+    .benefits-sec {
+      padding: 20px 0 100px;
+      background: var(--surface);
+    }
+
+    .cb-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .cb-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .cb-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(34, 197, 94, .14);
+      color: var(--green);
+    }
+
+    .cb-icon svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .cb-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .cb-card p {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* ============ REGISTRATION CTA ============ */
     .admission {
       padding: 90px 0;
       text-align: center;
@@ -374,7 +540,7 @@
       background:
         radial-gradient(500px 300px at 15% 30%, rgba(0, 194, 255, .12), transparent 70%),
         radial-gradient(500px 300px at 85% 70%, rgba(34, 197, 94, .12), transparent 70%),
-        var(--surface);
+        var(--navy);
     }
 
     .admission h2 {
@@ -430,26 +596,30 @@
       height: 16px;
     }
 
-    /* Reveal (shared pattern) */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* ============ RESPONSIVE ============ */
-    @media (max-width:1000px) {
+    @media (max-width:1024px) {
       .coach-hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .kit-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .method-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .agegroup-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .facilities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cb-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
       .gear-grid {
@@ -458,27 +628,29 @@
     }
 
     @media (max-width:640px) {
-      .kit-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+      .method-steps,
+      .agegroup-grid,
+      .facilities-grid,
+      .cb-grid {
+        grid-template-columns: 1fr;
       }
 
       .coach-hero {
-        padding: 140px 0 60px;
+        padding: 150px 0 60px;
       }
 
-      .mission-panel-inner {
-        padding: 40px 26px;
+      .timetable {
+        font-size: 12px;
       }
 
-      .spectrum-point {
-        max-width: 90px;
-        font-size: 11.5px;
+      .timetable th,
+      .timetable td {
+        padding: 12px 14px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-
-      .reveal,
       .gear-item {
         transition: none;
         opacity: 1;
@@ -493,129 +665,38 @@
   <div id="navbar"></div>
 
   <main>
+    <!-- ============ HERO ============ -->
     <section class="coach-hero">
       <div class="container coach-hero-grid">
         <div>
           <span class="eyebrow">Coaching Programs</span>
           <h1>Train. Compete. <span class="accent">Achieve.</span></h1>
-          <p class="lead">SportifyX is Pune's premier multi-sports coaching program, built to nurture talent, build
-            confidence, and develop future champions — through structured training led by experienced coaches, in modern
-            facilities.</p>
+          <p class="lead">SportifyX runs Pune's structured multi-sport coaching program &mdash; built to nurture
+            talent, build confidence, and develop future athletes through certified coaching across seven
+            disciplines, in modern facilities.</p>
           <div class="coach-cta-row">
             <a href="https://zfrmz.in/P1WPaB8EUOxJBXFOPaWT" target="_blank" rel="noopener"
               class="btn btn-primary">Register Today</a>
-            <a href="#sports-offered" class="btn btn-outline">See All Sports</a>
+            <a href="#schedule" class="btn btn-outline">See Weekly Schedule</a>
+          </div>
+          <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span><span class="current">Coaching</span>
           </div>
         </div>
         <div class="locker-card reveal">
           <span class="eyebrow">At a Glance</span>
           <div class="locker-row"><span>Sports Offered</span><strong>7</strong></div>
-          <div class="locker-row"><span>Age Groups</span><strong>All Ages</strong></div>
-          <div class="locker-row"><span>Skill Levels</span><strong>Beginner–Advanced</strong></div>
+          <div class="locker-row"><span>Age Groups</span><strong>U6&ndash;Adult</strong></div>
+          <div class="locker-row"><span>Skill Levels</span><strong>Beginner&ndash;Advanced</strong></div>
           <div class="locker-row"><span>Location</span><strong>Pune</strong></div>
         </div>
       </div>
     </section>
 
-    <section class="sports-offered" id="sports-offered">
+    <!-- ============ WHY SPORTIFYX ============ -->
+    <section class="gear-check" id="why">
       <div class="container">
-        <div style="display:flex; justify-content:center;"><span class="eyebrow">Sports Offered</span></div>
-        <h2 class="section-title">Seven Disciplines, One Program</h2>
-        <p class="section-sub">Tap a sport to see what a batch covers. Every discipline runs on its own coaching plan,
-          not a one-size-fits-all drill sheet.</p>
-
-        <div class="kit-grid">
-          <div class="kit-card c-green" data-sport="cricket">
-            <div class="kit-card-inner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M5 19L17 7" />
-                <circle cx="18.5" cy="5.5" r="2.3" />
-                <path d="M5 19l-1 3 3-1" />
-              </svg>
-              <h3>Cricket</h3>
-              <p>Batting, bowling & fielding fundamentals with structured net sessions.</p>
-            </div>
-          </div>
-          <div class="kit-card c-orange" data-sport="football">
-            <div class="kit-card-inner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 7l4 3-1.5 4.5h-5L8 10z" />
-              </svg>
-              <h3>Football</h3>
-              <p>Ball mastery, positional play & match fitness for every age group.</p>
-            </div>
-          </div>
-          <div class="kit-card c-cyan" data-sport="badminton">
-            <div class="kit-card-inner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="5.5" />
-                <path d="M13 13l7 7M15 20l5-5" />
-              </svg>
-              <h3>Badminton</h3>
-              <p>Footwork drills, stroke technique & rally-building sessions.</p>
-            </div>
-          </div>
-          <div class="kit-card c-green" data-sport="tennis">
-            <div class="kit-card-inner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <ellipse cx="9" cy="8" rx="6" ry="7" />
-                <path d="M9 15v6" />
-                <circle cx="18.5" cy="18.5" r="2" />
-              </svg>
-              <h3>Lawn Tennis</h3>
-              <p>Groundstrokes, serve mechanics & court movement, coached from scratch.</p>
-            </div>
-          </div>
-          <div class="kit-card c-orange" data-sport="karate">
-            <div class="kit-card-inner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path
-                  d="M8 11V7a2 2 0 014 0v4M12 11V6a2 2 0 014 0v5M16 11V9a2 2 0 014 0v4c0 4-3 7-7 7h-1c-3 0-5-2-6-4l-2-4a1.5 1.5 0 012.6-1.5L8 13" />
-              </svg>
-              <h3>Self Defence (Karate)</h3>
-              <p>Discipline-first karate training focused on control, form & confidence.</p>
-            </div>
-          </div>
-          <div class="kit-card c-cyan" data-sport="chess">
-            <div class="kit-card-inner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="6" r="3" />
-                <path d="M9.5 11h5l1.5 4h-8z" />
-                <path d="M7 20h10l-1-4H8z" />
-              </svg>
-              <h3>Chess</h3>
-              <p>Strategic thinking and pattern recognition, taught as a competitive skill.</p>
-            </div>
-          </div>
-          <div class="kit-card c-green" data-sport="lathi">
-            <div class="kit-card-inner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M4 20L20 4" />
-                <circle cx="4" cy="20" r="2.4" />
-                <circle cx="20" cy="4" r="2.4" />
-              </svg>
-              <h3>Self Defense (Lathi Kathi)</h3>
-              <p>Traditional stick-fighting technique, coordination & discipline.</p>
-            </div>
-          </div>
-          <div class="kit-card c-orange" data-sport="register">
-            <div class="kit-card-inner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-              <h3>Not Sure Which One?</h3>
-              <p>Register and our coaches will help you pick the right batch.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ WHY CHOOSE US: GEAR CHECK ============ -->
-    <section class="gear-check">
-      <div class="container">
-        <div style="display:flex; justify-content:center;"><span class="eyebrow">Why Choose SportifyX</span></div>
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">Why SportifyX</span></div>
         <h2 class="section-title">Every Box, Checked</h2>
         <p class="section-sub">Before any athlete steps onto the field, here's what's already in place.</p>
 
@@ -623,15 +704,19 @@
           <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5">
                 <path d="M4 12l5 5L20 6" />
-              </svg></span><span>Expert & certified coaches</span></div>
+              </svg></span><span>Certified, experienced coaches across all seven disciplines</span></div>
           <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5">
                 <path d="M4 12l5 5L20 6" />
-              </svg></span><span>Professional training programs</span></div>
+              </svg></span><span>Structured curriculum, not ad-hoc drills</span></div>
           <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5">
                 <path d="M4 12l5 5L20 6" />
-              </svg></span><span>Modern sports facilities</span></div>
+              </svg></span><span>Small batch sizes for individual attention</span></div>
+          <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <path d="M4 12l5 5L20 6" />
+              </svg></span><span>Modern facilities &mdash; turf, indoor courts, dojo &amp; more</span></div>
           <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5">
                 <path d="M4 12l5 5L20 6" />
@@ -639,82 +724,369 @@
           <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5">
                 <path d="M4 12l5 5L20 6" />
-              </svg></span><span>Skill & performance development</span></div>
+              </svg></span><span>Progress tracked and shared with parents</span></div>
           <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5">
                 <path d="M4 12l5 5L20 6" />
-              </svg></span><span>Safe, positive learning environment</span></div>
+              </svg></span><span>Safe, disciplined, and positive training environment</span></div>
           <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2.5">
                 <path d="M4 12l5 5L20 6" />
-              </svg></span><span>Scientific, result-oriented training</span></div>
-          <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5">
-                <path d="M4 12l5 5L20 6" />
-              </svg></span><span>Focus on discipline, confidence & leadership</span></div>
-          <div class="gear-item"><span class="gear-check-icon"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5">
-                <path d="M4 12l5 5L20 6" />
-              </svg></span><span>Transportation facility available</span></div>
+              </svg></span><span>Clear pathway from grassroots to competitive readiness</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ WHO CAN JOIN ============ -->
-    <section class="who-join">
-      <div class="container who-inner">
-        <span class="eyebrow" style="justify-content:center;">Who Can Join</span>
-        <h2 class="section-title">Every Age. Every Skill Level.</h2>
-        <p>Our program welcomes participants of all age groups and skill levels — from beginners taking their first step
-          into sports, to advanced players preparing for competitive tournaments.</p>
-        <div class="spectrum">
-          <div class="spectrum-dot start"></div>
-          <div class="spectrum-dot mid"></div>
-          <div class="spectrum-dot end"></div>
-        </div>
-        <div class="spectrum-points">
-          <div class="spectrum-point"><strong>First Timers</strong>New to the sport, building basics</div>
-          <div class="spectrum-point"><strong>Growing Athletes</strong>Developing skill & consistency</div>
-          <div class="spectrum-point"><strong>Competitive Players</strong>Tournament-ready training</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ MISSION ============ -->
-    <section class="mission">
+    <!-- ============ COACHING PHILOSOPHY ============ -->
+    <section class="philosophy-sec" id="philosophy">
       <div class="container">
-        <div class="mission-panel reveal">
-          <div class="mission-panel-inner">
-            <div class="mission-tag">Discipline Today, Champion Tomorrow.</div>
-            <p>Our mission is to create well-rounded athletes through disciplined training, professional coaching, and
-              continuous performance improvement — while fostering teamwork, sportsmanship, and personal growth.</p>
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">Our Philosophy</span></div>
+        <h2 class="section-title">Coaching Philosophy</h2>
+        <p class="philosophy-lead">We believe sport should build a person, not just a skillset. Every session is
+          designed around three ideas that guide how our coaches teach, correct, and encourage &mdash; regardless
+          of the discipline.</p>
+        <div class="philosophy-grid">
+          <div class="philosophy-card reveal">
+            <div class="philosophy-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" />
+              </svg></div>
+            <h3>Player First</h3>
+            <p>Every plan starts with where the student actually is, not a generic template stretched across
+              every age group.</p>
+          </div>
+          <div class="philosophy-card reveal">
+            <div class="philosophy-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg></div>
+            <h3>Discipline With Joy</h3>
+            <p>Structure and repetition matter, but so does keeping the game fun &mdash; burnt-out kids don't stay
+              in sport.</p>
+          </div>
+          <div class="philosophy-card reveal">
+            <div class="philosophy-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M4 19V9M12 19V5M20 19v-6" />
+              </svg></div>
+            <h3>Every Student Has a Plan</h3>
+            <p>Coaches track individual progress against a real curriculum, not just attendance sheets.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ ADMISSION / CONTACT ============ -->
-    <section class="admission" id="admission">
+    <!-- ============ TRAINING METHODOLOGY ============ -->
+    <section class="method-sec" id="methodology">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">How We Coach</span></div>
+        <h2 class="section-title">Training Methodology</h2>
+        <p class="section-sub">The same four-stage process runs underneath every sport we teach.</p>
+        <div class="method-steps">
+          <div class="method-step reveal">
+            <span class="method-step__num">01</span>
+            <h4>Assess &amp; Place</h4>
+            <p>Every new student is assessed and placed into the right batch by age and skill level, not just
+              age alone.</p>
+          </div>
+          <div class="method-step reveal">
+            <span class="method-step__num">02</span>
+            <h4>Structured Curriculum</h4>
+            <p>Sessions follow a real curriculum built for that sport &mdash; technique first, tactics and game
+              sense layered in progressively.</p>
+          </div>
+          <div class="method-step reveal">
+            <span class="method-step__num">03</span>
+            <h4>Track &amp; Adjust</h4>
+            <p>Coaches log individual progress each month and adjust drills, not just repeat the same session
+              plan.</p>
+          </div>
+          <div class="method-step reveal">
+            <span class="method-step__num">04</span>
+            <h4>Compete &amp; Progress</h4>
+            <p>Match simulations, in-house tournaments, and trials give students a real target to train toward.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AGE GROUPS ============ -->
+    <section class="agegroup-sec" id="age-groups">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">Who We Coach</span></div>
+        <h2 class="section-title">Age Groups</h2>
+        <p class="section-sub">Every discipline runs across the same four bands, adjusted for that sport's pace.</p>
+        <div class="agegroup-grid">
+          <div class="agegroup-chip reveal"><strong>U6&ndash;U10</strong><span class="tag">Foundation</span>
+            <p>Fundamentals, movement literacy, and building a love for the game.</p>
+          </div>
+          <div class="agegroup-chip reveal"><strong>U11&ndash;U14</strong><span class="tag">Development</span>
+            <p>Technical progression and introduction to tactical awareness.</p>
+          </div>
+          <div class="agegroup-chip reveal"><strong>U15&ndash;U19</strong><span class="tag">Performance</span>
+            <p>Competition-ready technique, conditioning, and selection-trial prep.</p>
+          </div>
+          <div class="agegroup-chip reveal"><strong>Adult</strong><span class="tag">Open / Recreational</span>
+            <p>Available in Chess, Lawn Tennis, Lathi Kathi &amp; Karate for adult learners.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WEEKLY SCHEDULE ============ -->
+    <section class="schedule-sec" id="schedule">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">Plan Your Week</span></div>
+        <h2 class="section-title">Weekly Schedule</h2>
+        <p class="section-sub">A quick look at what's running each day across the academy.</p>
+
+        <table class="timetable">
+          <tr>
+            <th>Day</th>
+            <th>Morning</th>
+            <th>Evening</th>
+          </tr>
+          <tr>
+            <td>Monday</td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag o">Football</span><span class="tt-tag g">Cricket</span></div>
+            </td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag c">Badminton</span><span class="tt-tag g">Lawn Tennis</span><span
+                  class="tt-tag c">Karate</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>&mdash;</td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag g">Cricket</span><span class="tt-tag o">Football</span><span
+                  class="tt-tag o">Chess</span><span class="tt-tag g">Lathi Kathi</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag o">Football</span><span class="tt-tag g">Cricket</span></div>
+            </td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag c">Badminton</span><span class="tt-tag g">Lawn Tennis</span><span
+                  class="tt-tag c">Karate</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>&mdash;</td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag g">Cricket</span><span class="tt-tag o">Football</span><span
+                  class="tt-tag o">Chess</span><span class="tt-tag g">Lathi Kathi</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>&mdash;</td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag o">Football</span><span class="tt-tag g">Lawn Tennis</span><span
+                  class="tt-tag c">Karate</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>&mdash;</td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag g">Cricket</span><span class="tt-tag o">Football</span><span
+                  class="tt-tag c">Badminton</span><span class="tt-tag g">Lawn Tennis</span><span
+                  class="tt-tag o">Chess</span><span class="tt-tag c">Karate</span><span class="tt-tag g">Lathi
+                  Kathi</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>
+              <div class="tt-tags"><span class="tt-tag g">Cricket Match Day</span><span class="tt-tag o">Football Match
+                  Day</span></div>
+            </td>
+            <td>&mdash;</td>
+          </tr>
+        </table>
+        <p class="schedule-note">Exact batch timings vary by age group &mdash; see each sport's page for full session
+          times.</p>
+      </div>
+    </section>
+
+    <!-- ============ FACILITIES ============ -->
+    <section class="facilities-sec" id="facilities">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">Where We Train</span></div>
+        <h2 class="section-title">Facilities</h2>
+        <p class="section-sub">Every sport trains on facilities built for that discipline, not a shared multi-purpose
+          hall.</p>
+        <div class="facilities-grid">
+          <div class="facility-card reveal">
+            <div class="facility-card-visual" style="background:var(--grad-sport);"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7l4 3-1.5 4.5h-5L8 10z" />
+              </svg></div>
+            <div class="facility-card-body">
+              <h4>Turf Ground</h4>
+              <p>Full-size football &amp; cricket turf used for training and match-day fixtures.</p>
+            </div>
+          </div>
+          <div class="facility-card reveal">
+            <div class="facility-card-visual" style="background:var(--grad-cyan);"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.6">
+                <circle cx="9" cy="9" r="5.5" />
+                <path d="M13 13l7 7M15 20l5-5" />
+              </svg></div>
+            <div class="facility-card-body">
+              <h4>Indoor Badminton Courts</h4>
+              <p>Four wooden courts, used year-round regardless of weather.</p>
+            </div>
+          </div>
+          <div class="facility-card reveal">
+            <div class="facility-card-visual" style="background:var(--grad-energy);"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="7" />
+                <path d="M7 7c3 3 3 7 0 10M17 7c-3 3-3 7 0 10" />
+              </svg></div>
+            <div class="facility-card-body">
+              <h4>Clay Tennis Courts</h4>
+              <p>Two clay courts for Lawn Tennis coaching and ladder matches.</p>
+            </div>
+          </div>
+          <div class="facility-card reveal">
+            <div class="facility-card-visual" style="background:linear-gradient(120deg, var(--yellow), var(--orange));">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="7" y="9" rx="3" width="10" height="8" />
+                <path d="M7 13H5M9 9V7M12 9V6M15 9V7" />
+              </svg></div>
+            <div class="facility-card-body">
+              <h4>Dojo Training Hall</h4>
+              <p>Dedicated hall for Karate kata, kumite, and belt grading examinations.</p>
+            </div>
+          </div>
+          <div class="facility-card reveal">
+            <div class="facility-card-visual" style="background:var(--grad-sport);"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="7" r="3" />
+                <path d="M9 12h6l1 5H8z" />
+                <path d="M7 21h10" />
+              </svg></div>
+            <div class="facility-card-body">
+              <h4>Chess Room</h4>
+              <p>Quiet, dedicated space for board coaching and rated tournament play.</p>
+            </div>
+          </div>
+          <div class="facility-card reveal">
+            <div class="facility-card-visual" style="background:var(--grad-cyan);"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.6">
+                <path d="M6 20V10M12 20V4M18 20v-7" />
+              </svg></div>
+            <div class="facility-card-body">
+              <h4>Fitness &amp; Conditioning Zone</h4>
+              <p>Strength, mobility, and injury-prevention work for Performance-track students.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COACHING BENEFITS ============ -->
+    <section class="benefits-sec" id="benefits">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">What You Get</span></div>
+        <h2 class="section-title">Coaching Benefits</h2>
+        <div class="cb-grid">
+          <div class="cb-card reveal">
+            <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 19V9M12 19V5M20 19v-6" />
+              </svg></div>
+            <div>
+              <h4>Personalized Progress Tracking</h4>
+              <p>Individual skill benchmarks, reviewed and updated every month.</p>
+            </div>
+          </div>
+          <div class="cb-card reveal">
+            <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 7l9 6 9-6" />
+              </svg></div>
+            <div>
+              <h4>Regular Parent Updates</h4>
+              <p>Monthly progress notes so you always know where your child stands.</p>
+            </div>
+          </div>
+          <div class="cb-card reveal">
+            <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M8 21h8M12 17v4M6 4h12l-1 6a5 5 0 01-10 0z" />
+                <path d="M6 6H3a3 3 0 003 3M18 6h3a3 3 0 01-3 3" />
+              </svg></div>
+            <div>
+              <h4>Access to SportifyX Tournaments</h4>
+              <p>Priority entry into our in-house and inter-academy events.</p>
+            </div>
+          </div>
+          <div class="cb-card reveal">
+            <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg></div>
+            <div>
+              <h4>Fitness &amp; Nutrition Guidance</h4>
+              <p>Age-appropriate conditioning and basic nutrition advice for young athletes.</p>
+            </div>
+          </div>
+          <div class="cb-card reveal">
+            <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="4" />
+                <path d="M9 8l6 4-6 4z" />
+              </svg></div>
+            <div>
+              <h4>Video Analysis Sessions</h4>
+              <p>Recorded technique reviews for Performance-track students.</p>
+            </div>
+          </div>
+          <div class="cb-card reveal">
+            <div class="cb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="8" cy="9" r="3" />
+                <circle cx="17" cy="9" r="3" />
+                <path d="M2 20c0-3 2.7-5 6-5s6 2 6 5M13 15c3.3 0 6 2 6 5" />
+              </svg></div>
+            <div>
+              <h4>Small Batch Sizes</h4>
+              <p>Capped batch sizes so every student gets real coaching attention.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REGISTRATION CTA ============ -->
+    <section class="admission" id="register">
       <div class="container">
         <span class="eyebrow" style="justify-content:center;">Contact For Admission</span>
         <h2>Take the First Step</h2>
-        <p>Towards a healthier, stronger, and more successful future — for you or your child.</p>
+        <p>Towards a healthier, stronger, and more disciplined future &mdash; for you or your child.</p>
         <div class="admission-actions">
           <a href="https://zfrmz.in/P1WPaB8EUOxJBXFOPaWT" target="_blank" rel="noopener"
-            class="btn btn-primary">Register Today!</a>
+              class="btn btn-primary">Register Today</a>
+          <a href="/sports/" class="btn btn-outline">Browse All Sports</a>
         </div>
         <div class="phone-links">
           <a href="tel:+917559376815" class="phone-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 015 6a2 2 0 012-2z" />
             </svg>
-            75593 76815
+            +91 75593 76815
           </a>
           <a href="tel:+919823087877" class="phone-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 015 6a2 2 0 012-2z" />
             </svg>
-            98230 87877
+            +91 98230 87877
           </a>
         </div>
       </div>
@@ -722,27 +1094,19 @@
 
   </main>
 
+  <a class="whatsapp-float" href="https://wa.me/919876543210" target="_blank" rel="noopener"
+    aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.2 1.2-1.7 1.3-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.3-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.4 0 .6-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.6-.7c.2-.3.4-.2.7-.1l1.6.8c.2.1.4.2.5.3.1.2.1.9-.1 1.4z" />
+    </svg>
+  </a>
+
   <div id="footer"></div>
+
   <script src="/js/script.js"></script>
+
   <script>
-    document.querySelectorAll('.kit-card').forEach((card) => {
-      card.addEventListener('click', () => {
-        const wasOpen = card.classList.contains('is-open');
-        document.querySelectorAll('.kit-card.is-open').forEach((c) => c.classList.remove('is-open'));
-        if (!wasOpen) card.classList.add('is-open');
-      });
-    });
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
     const gearItems = document.querySelectorAll('.gear-item');
     const gearObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

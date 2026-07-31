@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events — SportifyX</title>
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+    <meta name="description"
+        content="Upcoming and past sporting events at SportifyX Pune — corporate tournaments, school championships, and community leagues across cricket, football, badminton, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .page-hero {
+            padding: 170px 0 60px;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(600px 380px at 12% 0%, rgba(34, 197, 94, .16), transparent 70%), radial-gradient(600px 420px at 95% 40%, rgba(255, 107, 0, .12), transparent 70%), var(--navy);
+            text-align: center;
+        }
+
+        .page-hero .pitch-lines {
+            opacity: .4;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5.6vw, 64px);
+            text-transform: uppercase;
+            margin: 16px auto 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero p {
+            max-width: 560px;
+            margin: 0 auto;
+            color: var(--text-dim);
+            font-size: 16.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            font-family: var(--font-head);
+            font-size: 12.5px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-top: 14px;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--green-2);
+        }
+
+        .breadcrumb .sep {
+            opacity: .5;
+        }
+
+        .breadcrumb .current {
+            color: var(--text);
+        }
+
+        /* ============ UPCOMING EVENTS (full grid, richer than homepage teaser) ============ */
+        .upcoming-sec {
+            padding: 100px 0;
+        }
+
+        .upcoming-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .event-card__foot a {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 12.5px;
+            color: var(--green-2);
+        }
+
+        .event-card__foot a:hover {
+            color: var(--green);
+        }
+
+        /* ============ PAST EVENTS (archive, muted) ============ */
+        .past-sec {
+            padding: 20px 0 100px;
+            background: var(--surface);
+        }
+
+        .past-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .past-card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 14px;
+            padding: 20px;
+            opacity: .88;
+        }
+
+        .past-card__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .past-card__date {
+            font-family: var(--font-head);
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        .past-card__badge {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 10.5px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--ice);
+            background: rgba(255, 255, 255, .06);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .past-card h4 {
+            font-size: 15.5px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .past-card p {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        /* ============ CATEGORY BLOCKS (Corporate / School / Community) ============ */
+        .category-sec {
+            padding: 100px 0;
+        }
+
+        .category-sec.alt {
+            background: var(--surface);
+        }
+
+        .category-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 44px;
+        }
+
+        .category-icon-badge {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .category-icon-badge svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .category-top h2 {
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: clamp(26px, 3.2vw, 36px);
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .category-top p {
+            color: var(--text-dim);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .category-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-stats div {
+            text-align: left;
+        }
+
+        .category-stats strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 26px;
+        }
+
+        .category-stats span {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .category-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 14px;
+            padding: 18px 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-row-main h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .category-row-main p {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .category-row-tag {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            padding: 5px 12px;
+            border-radius: 20px;
+            flex-shrink: 0;
+        }
+
+        .corp .category-icon-badge {
+            background: rgba(255, 107, 0, .14);
+            color: var(--orange);
+        }
+
+        .corp .category-row-tag {
+            background: rgba(255, 107, 0, .14);
+            color: var(--orange);
+        }
+
+        .school .category-icon-badge {
+            background: rgba(34, 197, 94, .14);
+            color: var(--green);
+        }
+
+        .school .category-row-tag {
+            background: rgba(34, 197, 94, .14);
+            color: var(--green);
+        }
+
+        .community .category-icon-badge {
+            background: rgba(0, 194, 255, .14);
+            color: var(--cyan);
+        }
+
+        .community .category-row-tag {
+            background: rgba(0, 194, 255, .14);
+            color: var(--cyan);
+        }
+
+        /* ============ EVENT GALLERY ============ */
+        .event-gallery-sec {
+            padding: 20px 0 100px;
+            background: var(--surface);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+
+            .upcoming-grid,
+            .past-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .category-top {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .upcoming-grid,
+            .past-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .page-hero {
+                padding: 150px 0 40px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <div id="navbar"></div>
+
+    <main>
+        <!-- ============ PAGE HERO ============ -->
+        <section class="page-hero">
+            <div class="pitch-lines"></div>
+            <div class="container">
+                <span class="eyebrow" style="justify-content:center;">Events</span>
+                <h1>Where <span
+                        style="background:var(--grad-sport);-webkit-background-clip:text;background-clip:text;color:transparent;">Communities</span>
+                    Show Up</h1>
+                <p>From school championships to corporate leagues — see what's coming up, what we've run before, and
+                    how to get your team or child registered.</p>
+                <div class="breadcrumb">
+                    <a href="/index.html">Home</a><span class="sep">/</span><span class="current">Events</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ UPCOMING EVENTS ============ -->
+        <section class="upcoming-sec" id="upcoming">
+            <div class="container">
+                <div style="display:flex; justify-content:center;"><span class="eyebrow">What's Coming Up</span></div>
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-sub">Register early — most events fill up 1&ndash;2 weeks before the date.</p>
+                <div class="upcoming-grid">
+
+                    <div class="event-card g reveal">
+                        <span class="event-card__date">18&ndash;20 Aug 2026</span>
+                        <div class="event-card__body">
+                            <h3>Pune Schools Football Championship</h3>
+                            <p>An inter-school knockout tournament for U12 &amp; U16 boys' and girls' teams across the
+                                city.</p>
+                            <div class="event-card__foot"><span>School Championship</span><a
+                                    href="/contact/index.html">Register &rarr;</a></div>
+                        </div>
+                    </div>
+
+                    <div class="event-card o reveal">
+                        <span class="event-card__date">5 Sep 2026</span>
+                        <div class="event-card__body">
+                            <h3>Corporate Cricket Premier League</h3>
+                            <p>A weekend T10 tournament for corporate teams from Pune's business parks — trophies and
+                                bragging rights on the line.</p>
+                            <div class="event-card__foot"><span>Corporate Tournament</span><a
+                                    href="/contact/index.html">Register &rarr;</a></div>
+                        </div>
+                    </div>
+
+                    <div class="event-card c reveal">
+                        <span class="event-card__date">27 Sep 2026</span>
+                        <div class="event-card__body">
+                            <h3>SportifyX Community Badminton League</h3>
+                            <p>Open singles &amp; doubles league for all ages and skill levels, run over four weekends.
+                            </p>
+                            <div class="event-card__foot"><span>Community League</span><a
+                                    href="/contact/index.html">Register &rarr;</a></div>
+                        </div>
+                    </div>
+
+                    <div class="event-card g reveal">
+                        <span class="event-card__date">12 Oct 2026</span>
+                        <div class="event-card__body">
+                            <h3>Inter-Academy Chess Open</h3>
+                            <p>A FIDE-rated rapid tournament open to players from any academy, rated 0&ndash;1800.</p>
+                            <div class="event-card__foot"><span>Open Tournament</span><a
+                                    href="/contact/index.html">Register &rarr;</a></div>
+                        </div>
+                    </div>
+
+                    <div class="event-card o reveal">
+                        <span class="event-card__date">25 Oct 2026</span>
+                        <div class="event-card__body">
+                            <h3>Karate Belt Grading &amp; Demo Day</h3>
+                            <p>Bi-annual grading examination followed by a public kata &amp; kumite demonstration.</p>
+                            <div class="event-card__foot"><span>Academy Event</span><a
+                                    href="/contact/index.html">Register &rarr;</a></div>
+                        </div>
+                    </div>
+
+                    <div class="event-card c reveal">
+                        <span class="event-card__date">8 Nov 2026</span>
+                        <div class="event-card__body">
+                            <h3>Lathi Kathi Heritage Festival</h3>
+                            <p>A community showcase of Maharashtra's traditional stick-fighting art, open to all ages.
+                            </p>
+                            <div class="event-card__foot"><span>Community Event</span><a
+                                    href="/contact/index.html">Register &rarr;</a></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PAST EVENTS (ARCHIVE) ============ -->
+        <section class="past-sec" id="past">
+            <div class="container">
+                <div style="display:flex; justify-content:center;"><span class="eyebrow">A Look Back</span></div>
+                <h2 class="section-title">Past Events</h2>
+                <p class="section-sub">A snapshot of what SportifyX has run over the last year.</p>
+                <div class="past-grid">
+
+                    <div class="past-card reveal">
+                        <div class="past-card__top"><span class="past-card__date">May 2026</span><span
+                                class="past-card__badge">Completed</span></div>
+                        <h4>Summer Football Camp 2026</h4>
+                        <p>120 participants across U8&ndash;U16, five-day intensive skills camp.</p>
+                    </div>
+
+                    <div class="past-card reveal">
+                        <div class="past-card__top"><span class="past-card__date">Apr 2026</span><span
+                                class="past-card__badge">Completed</span></div>
+                        <h4>Pune Corporate Badminton Cup</h4>
+                        <p>18 corporate teams competed over a single weekend knockout format.</p>
+                    </div>
+
+                    <div class="past-card reveal">
+                        <div class="past-card__top"><span class="past-card__date">Mar 2026</span><span
+                                class="past-card__badge">Completed</span></div>
+                        <h4>State-Level Cricket Selection Trials</h4>
+                        <p>8 SportifyX students selected to district-level trial camps this cycle.</p>
+                    </div>
+
+                    <div class="past-card reveal">
+                        <div class="past-card__top"><span class="past-card__date">Jan 2026</span><span
+                                class="past-card__badge">Completed</span></div>
+                        <h4>Republic Day Karate Demonstration</h4>
+                        <p>Public kata &amp; self-defense demonstration for the local community.</p>
+                    </div>
+
+                    <div class="past-card reveal">
+                        <div class="past-card__top"><span class="past-card__date">Dec 2025</span><span
+                                class="past-card__badge">Completed</span></div>
+                        <h4>Winter Chess Rapid Open</h4>
+                        <p>FIDE-rated rapid event with 64 players across three rating categories.</p>
+                    </div>
+
+                    <div class="past-card reveal">
+                        <div class="past-card__top"><span class="past-card__date">Nov 2025</span><span
+                                class="past-card__badge">Completed</span></div>
+                        <h4>Lathi Kathi Traditional Sports Day</h4>
+                        <p>A cultural showcase celebrating Maharashtra's traditional martial arts heritage.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CORPORATE TOURNAMENTS ============ -->
+        <section class="category-sec corp" id="corporate">
+            <div class="container">
+                <div class="category-top">
+                    <div>
+                        <div class="category-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M8 21h8M12 17v4M6 4h12l-1 6a5 5 0 01-10 0z" />
+                                <path d="M6 6H3a3 3 0 003 3M18 6h3a3 3 0 01-3 3" />
+                            </svg></div>
+                        <h2>Corporate Tournaments</h2>
+                        <p>Weekend tournaments for teams from Pune's business parks and IT companies &mdash; a
+                            low-effort
+                            way to run a real team-building event, without organizing it yourselves. We handle the
+                            ground,
+                            officials, and trophies; you bring the team.</p>
+                        <div class="category-stats">
+                            <div><strong>18+</strong><span>Companies Hosted</span></div>
+                            <div><strong>4</strong><span>Sports Available</span></div>
+                            <div><strong>2026</strong><span>Since</span></div>
+                        </div>
+                    </div>
+                    <div class="category-list">
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Corporate Cricket Premier League</h4>
+                                <p>T10 format, 8&ndash;16 teams, single weekend</p>
+                            </div>
+                            <span class="category-row-tag">5 Sep 2026</span>
+                        </div>
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Corporate Badminton Cup</h4>
+                                <p>Singles &amp; doubles, mixed-team scoring</p>
+                            </div>
+                            <span class="category-row-tag">Runs Annually</span>
+                        </div>
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Corporate Football 7s</h4>
+                                <p>Evening weekday league, 6-week season</p>
+                            </div>
+                            <span class="category-row-tag">Runs Annually</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-row" style="text-align:center;">
+                    <a href="/contact/index.html" class="btn btn-primary">Register Your Company Team</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SCHOOL CHAMPIONSHIPS ============ -->
+        <section class="category-sec alt school" id="schools">
+            <div class="container">
+                <div class="category-top">
+                    <div class="category-list" style="order:2;">
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Pune Schools Football Championship</h4>
+                                <p>Inter-school knockout, U12 &amp; U16, boys &amp; girls</p>
+                            </div>
+                            <span class="category-row-tag">18&ndash;20 Aug 2026</span>
+                        </div>
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Inter-School Cricket Shield</h4>
+                                <p>School-team T15 format, single elimination</p>
+                            </div>
+                            <span class="category-row-tag">Runs Annually</span>
+                        </div>
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Schools Chess Championship</h4>
+                                <p>Team &amp; individual rating categories</p>
+                            </div>
+                            <span class="category-row-tag">Runs Annually</span>
+                        </div>
+                    </div>
+                    <div style="order:1;">
+                        <div class="category-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M12 3l9 5-9 5-9-5z" />
+                                <path d="M5 10v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" />
+                            </svg></div>
+                        <h2>School Championships</h2>
+                        <p>We partner directly with schools across Pune to run inter-school tournaments &mdash; giving
+                            students a structured, well-officiated competition beyond regular school sports day events.
+                        </p>
+                        <div class="category-stats">
+                            <div><strong>12+</strong><span>Partner Schools</span></div>
+                            <div><strong>3</strong><span>Championships/Year</span></div>
+                            <div><strong>Free</strong><span>School Entry</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-row" style="text-align:center;">
+                    <a href="/contact/index.html" class="btn btn-primary">Partner Your School</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ COMMUNITY LEAGUES ============ -->
+        <section class="category-sec community" id="community">
+            <div class="container">
+                <div class="category-top">
+                    <div>
+                        <div class="category-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <circle cx="8" cy="9" r="3" />
+                                <circle cx="17" cy="9" r="3" />
+                                <path d="M2 20c0-3 2.7-5 6-5s6 2 6 5M13 15c3.3 0 6 2 6 5" />
+                            </svg></div>
+                        <h2>Community Leagues</h2>
+                        <p>Open leagues for anyone in Pune, regardless of academy affiliation &mdash; a way to keep
+                            playing casually, meet other players, and stay active without a competitive commitment.</p>
+                        <div class="category-stats">
+                            <div><strong>200+</strong><span>Players/Year</span></div>
+                            <div><strong>3</strong><span>Leagues Running</span></div>
+                            <div><strong>All Ages</strong><span>Welcome</span></div>
+                        </div>
+                    </div>
+                    <div class="category-list">
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Community Badminton League</h4>
+                                <p>Open singles &amp; doubles, four-weekend season</p>
+                            </div>
+                            <span class="category-row-tag">27 Sep 2026</span>
+                        </div>
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Weekend Football League</h4>
+                                <p>7-a-side, open to all skill levels</p>
+                            </div>
+                            <span class="category-row-tag">Runs Monthly</span>
+                        </div>
+                        <div class="category-row">
+                            <div class="category-row-main">
+                                <h4>Open Chess League</h4>
+                                <p>Casual rated league, all ages welcome</p>
+                            </div>
+                            <span class="category-row-tag">Runs Monthly</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-row" style="text-align:center;">
+                    <a href="/contact/index.html" class="btn btn-primary">Join a Community League</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EVENT GALLERY (reused .gallery-grid/.gallery-tile from shared style.css) ============ -->
+        <section class="event-gallery-sec" id="gallery">
+            <div class="container">
+                <div style="display:flex; justify-content:center;"><span class="eyebrow">From Past Events</span></div>
+                <h2 class="section-title">Event Gallery</h2>
+                <p class="section-sub">Moments from championships, leagues, and tournaments over the past year.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-tile g1 reveal"><span>Football Championship</span></div>
+                    <div class="gallery-tile g2 reveal"><span>Corporate Cricket</span></div>
+                    <div class="gallery-tile g3 reveal"><span>Badminton League</span></div>
+                    <div class="gallery-tile g4 reveal"><span>Karate Demo Day</span></div>
+                    <div class="gallery-tile g5 reveal"><span>Chess Open</span></div>
+                </div>
+                <div class="gallery-more">
+                    <a href="/gallery/index.html" class="btn btn-outline">Browse Full Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ REGISTER NOW CTA (reused .cta from shared style.css) ============ -->
+        <section class="cta" id="register">
+            <div class="container">
+                <span class="eyebrow" style="justify-content:center;">Ready to Join?</span>
+                <h2>Register for an Upcoming Event</h2>
+                <p>Whether it's your school, your company, or just your Sunday mornings — there's an event here for
+                    you.</p>
+                <div class="cta-actions">
+                    <a href="/contact/index.html" class="btn btn-primary">Register Now</a>
+                    <a href="/sports/index.html" class="btn btn-outline">Browse All Sports</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <a class="whatsapp-float" href="https://wa.me/919876543210" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.2 1.2-1.7 1.3-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.3-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.4 0 .6-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.6-.7c.2-.3.4-.2.7-.1l1.6.8c.2.1.4.2.5.3.1.2.1.9-.1 1.4z" />
+        </svg>
+    </a>
+
+    <div id="footer"></div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coaching Programs — SportifyX</title>
+  <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
   <meta name="description"
     content="SportifyX Multi-Sports Coaching Program in Pune — Cricket, Football, Badminton, Lawn Tennis, Karate, Lathi Kathi & Chess. Expert coaches, structured batches, all ages welcome.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +13,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
 
   <style>
-    /* ============ COACHING PAGE — PAGE-SPECIFIC STYLES ============ */
-
-    /* --- Page hero --- */
     .coach-hero {
       padding: 160px 0 80px;
       position: relative;
@@ -113,7 +113,6 @@
       letter-spacing: .02em;
     }
 
-    /* --- Sports offered: kit locker grid --- */
     .sports-offered {
       padding: 90px 0 100px;
     }
@@ -494,8 +493,6 @@
   <div id="navbar"></div>
 
   <main>
-
-    <!-- ============ HERO ============ -->
     <section class="coach-hero">
       <div class="container coach-hero-grid">
         <div>
@@ -520,7 +517,6 @@
       </div>
     </section>
 
-    <!-- ============ SPORTS OFFERED ============ -->
     <section class="sports-offered" id="sports-offered">
       <div class="container">
         <div style="display:flex; justify-content:center;"><span class="eyebrow">Sports Offered</span></div>
@@ -729,7 +725,6 @@
   <div id="footer"></div>
   <script src="/js/script.js"></script>
   <script>
-    // Kit card expand-on-tap (works alongside hover on desktop via CSS if desired)
     document.querySelectorAll('.kit-card').forEach((card) => {
       card.addEventListener('click', () => {
         const wasOpen = card.classList.contains('is-open');
@@ -738,7 +733,6 @@
       });
     });
 
-    // Reveal on scroll (hero locker card, mission panel)
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -749,7 +743,6 @@
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-    // Gear-check list: staggered tick-in as it scrolls into view
     const gearItems = document.querySelectorAll('.gear-item');
     const gearObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

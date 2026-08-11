@@ -23,8 +23,15 @@
 
   <main>
     <section class="hero">
-      <div class="pitch-lines"></div>
-      <div class="centre-circle"></div>
+      <div class="hero-video-wrap">
+        <!-- Swap the src below for the client's own footage (mp4, ideally <8MB, 1920x1080, no audio needed). -->
+        <video autoplay muted loop playsinline poster="/assets/hero-poster.jpg" id="heroVideo">
+          <source src="/images/assets/hero-video.MP4" type="video/mp4">
+        </video>
+        <div class="video-fallback" id="videoFallback"></div>
+      </div>
+      <div class="hero-scrim"></div>
+
       <div class="container hero-inner">
         <span class="eyebrow">Coaching · Events · Grassroots Development</span>
         <h1>Redefining <span class="accent">Sports Culture</span>, City by City</h1>
@@ -33,10 +40,10 @@
           child's first session to their first competition.</p>
         <div class="hero-ctas">
           <a href="/sports/" class="btn btn-primary">Find Your Sport</a>
-          <a href="/events/" class="btn btn-outline">See Upcoming Events</a>
+          <a href="/events/" class="btn btn-ghost-light">See Upcoming Events</a>
         </div>
 
-        <div class="scoreboard" id="scoreboard">
+        <!-- <div class="scoreboard" id="scoreboard">
           <div class="scoreboard-tabs">
             <button class="tab active" data-sport="football">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -80,8 +87,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
+
+      <div class="scroll-cue"><span></span>Scroll</div>
     </section>
 
     <div class="ticker-wrap">
@@ -125,6 +134,32 @@
       </div>
     </section>
 
+    <section class="stats" id="achievements">
+      <div class="container">
+        <div style="display:flex; justify-content:center;"><span class="eyebrow">By the Numbers</span></div>
+        <h2 class="section-title">Our Achievements</h2>
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <div class="stat-num" data-count="15" data-suffix="+">0</div>
+            <div class="stat-label">Years Coaching</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num" data-count="7">0</div>
+            <div class="stat-label">Sport Disciplines</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num" data-count="2200" data-suffix="+">0</div>
+            <div class="stat-label">Students Coached</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num" style="background:none;-webkit-text-fill-color:var(--ink);color:var(--ink);">G→E
+            </div>
+            <div class="stat-label">Grassroots to Elite Pathway</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="sports" id="sports">
       <div class="container">
         <div style="display:flex; justify-content:center;"><span class="eyebrow">Our Disciplines</span></div>
@@ -142,7 +177,7 @@
               </svg>
               <h3>Cricket</h3>
               <p>Batting technique, bowling mechanics, and match-reading, coached like an elite academy.</p>
-              <a href="/sports/index.html#cricket" class="sport-link">Explore program
+              <a href="/sports/#cricket" class="sport-link">Explore program
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -158,7 +193,7 @@
               </svg>
               <h3>Football</h3>
               <p>Ball mastery, positional understanding, and match fitness for every age group.</p>
-              <a href="/sports/index.html#football" class="sport-link">Explore program
+              <a href="/sports/#football" class="sport-link">Explore program
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -166,7 +201,7 @@
             </div>
           </div>
 
-          <div class="sport-card accent-cyan reveal">
+          <div class="sport-card accent-teal reveal">
             <div class="sport-card-inner">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                 <circle cx="9" cy="9" r="5.5" />
@@ -174,7 +209,7 @@
               </svg>
               <h3>Badminton</h3>
               <p>Footwork, racket control, and rally intelligence from the very first rally.</p>
-              <a href="/sports/index.html#badminton" class="sport-link">Explore program
+              <a href="/sports/#badminton" class="sport-link">Explore program
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -190,7 +225,7 @@
               </svg>
               <h3>Lawn Tennis</h3>
               <p>Groundstrokes, serve mechanics, and court coverage on real lawn-tennis courts.</p>
-              <a href="/sports/index.html#lawn-tennis" class="sport-link">Explore program
+              <a href="/sports/#lawn-tennis" class="sport-link">Explore program
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -207,7 +242,7 @@
               </svg>
               <h3>Chess</h3>
               <p>Openings, tactics, and endgame technique, from first moves to tournament rating.</p>
-              <a href="/sports/index.html#chess" class="sport-link">Explore program
+              <a href="/sports/#chess" class="sport-link">Explore program
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -215,7 +250,7 @@
             </div>
           </div>
 
-          <div class="sport-card accent-cyan reveal">
+          <div class="sport-card accent-teal reveal">
             <div class="sport-card-inner">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                 <rect x="7" y="9" rx="3" width="10" height="8" />
@@ -223,7 +258,7 @@
               </svg>
               <h3>Karate</h3>
               <p>Kata, kumite, and belt-graded discipline in a structured martial-arts curriculum.</p>
-              <a href="/sports/index.html#karate" class="sport-link">Explore program
+              <a href="/sports/#karate" class="sport-link">Explore program
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -243,7 +278,7 @@
               <h3>Lathi Kathi</h3>
               <p>Traditional stick-fighting technique, footwork, and defensive form, rooted in Maharashtra's own
                 martial tradition.</p>
-              <a href="/sports/index.html#lathi-kathi" class="sport-link">Explore program
+              <a href="/sports/#lathi-kathi" class="sport-link">Explore program
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -407,51 +442,6 @@
         </div>
       </div>
     </section>
-
-    <section class="stats" id="achievements">
-      <div class="container">
-        <div style="display:flex; justify-content:center;"><span class="eyebrow">By the Numbers</span></div>
-        <h2 class="section-title">Our Achievements</h2>
-        <div class="stats-grid">
-          <div class="stat-card reveal">
-            <div class="stat-num" data-count="15" data-suffix="+">0</div>
-            <div class="stat-label">Years Coaching</div>
-          </div>
-          <div class="stat-card reveal">
-            <div class="stat-num" data-count="7">0</div>
-            <div class="stat-label">Sport Disciplines</div>
-          </div>
-          <div class="stat-card reveal">
-            <div class="stat-num" data-count="2200" data-suffix="+">0</div>
-            <div class="stat-label">Students Coached</div>
-          </div>
-          <div class="stat-card reveal">
-            <div class="stat-num" style="background:none;-webkit-text-fill-color:var(--text);color:var(--text);">G→E
-            </div>
-            <div class="stat-label">Grassroots to Elite Pathway</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- <section class="gallery-sec" id="gallery">
-      <div class="container">
-        <div style="display:flex; justify-content:center;"><span class="eyebrow">A Look Inside</span></div>
-        <h2 class="section-title">Gallery Preview</h2>
-        <p class="section-sub">Training sessions, match days, tournaments, and podium moments - a peek before you
-          see the full gallery.</p>
-        <div class="gallery-grid">
-          <div class="gallery-tile g1 reveal"><span>Inauguration</span></div>
-          <div class="gallery-tile g2 reveal"><span>Matches</span></div>
-          <div class="gallery-tile g3 reveal"><span>Events</span></div>
-          <div class="gallery-tile g4 reveal"><span>Awards</span></div>
-          <div class="gallery-tile g5 reveal"><span>Facilities</span></div>
-        </div>
-        <div class="gallery-more">
-          <a href="/gallery/" class="btn btn-outline">Browse Full Gallery</a>
-        </div>
-      </div>
-    </section> -->
 
     <section class="testimonials" id="testimonials">
       <div class="container">

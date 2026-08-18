@@ -17,15 +17,41 @@
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .page-hero {
-            padding: 170px 0 60px;
+            padding: 190px 0 90px;
             position: relative;
             overflow: hidden;
-            background: radial-gradient(600px 380px at 12% 0%, rgba(34, 197, 94, .16), transparent 70%), radial-gradient(600px 420px at 95% 40%, rgba(255, 107, 0, .12), transparent 70%), var(--navy);
+            isolation: isolate;
             text-align: center;
+            color: #fff;
         }
 
+        .page-hero .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background-image:
+                linear-gradient(180deg, rgba(10, 20, 8, .78) 0%, rgba(10, 20, 8, .58) 45%, rgba(10, 20, 8, .88) 100%),
+                linear-gradient(100deg, rgba(18, 143, 114, .3), rgba(245, 118, 11, .18) 65%),
+                url('/images/gallery/DSC_4494.jpg');
+            background-size: cover;
+            background-position: center 55%;
+        }
+
+        /* subtle pitch-line texture over the photo for brand consistency */
         .page-hero .pitch-lines {
-            opacity: .4;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: .5;
+            background-image: repeating-linear-gradient(90deg, transparent, transparent 119px, rgba(255, 255, 255, .05) 120px);
+        }
+
+        .page-hero .eyebrow {
+            color: var(--orange-bright);
+        }
+
+        .page-hero .eyebrow::before {
+            background: var(--orange-bright);
         }
 
         .page-hero h1 {
@@ -35,12 +61,13 @@
             margin: 16px auto 14px;
             position: relative;
             z-index: 1;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, .35);
         }
 
         .page-hero p {
             max-width: 560px;
             margin: 0 auto;
-            color: var(--text-dim);
+            color: rgba(255, 255, 255, .82);
             font-size: 16.5px;
             position: relative;
             z-index: 1;
@@ -54,14 +81,14 @@
             align-items: center;
             font-family: var(--font-head);
             font-size: 12.5px;
-            color: var(--text-dim);
+            color: rgba(255, 255, 255, .68);
             text-transform: uppercase;
             letter-spacing: .06em;
             margin-top: 14px;
         }
 
         .breadcrumb a:hover {
-            color: var(--green-2);
+            color: #fff;
         }
 
         .breadcrumb .sep {
@@ -69,17 +96,17 @@
         }
 
         .breadcrumb .current {
-            color: var(--text);
+            color: #fff;
         }
 
         .subnav {
             position: sticky;
             top: 73px;
             z-index: 90;
-            background: rgba(17, 24, 39, .92);
+            background: rgba(22, 33, 13, .95);
             backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, .07);
-            border-top: 1px solid rgba(255, 255, 255, .07);
+            border-bottom: 1px solid rgba(247, 249, 242, .08);
+            border-top: 1px solid rgba(247, 249, 242, .08);
         }
 
         .subnav-inner {
@@ -104,10 +131,10 @@
             font-family: var(--font-head);
             font-weight: 600;
             font-size: 13px;
-            color: var(--text-dim);
+            color: rgba(247, 249, 242, .7);
             padding: 8px 16px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, .08);
+            border: 1px solid rgba(247, 249, 242, .12);
             transition: color .2s ease, border-color .2s ease, background .2s ease;
         }
 
@@ -117,12 +144,12 @@
         }
 
         .subnav a:hover {
-            color: var(--text);
-            border-color: rgba(255, 255, 255, .2);
+            color: #fff;
+            border-color: rgba(247, 249, 242, .3);
         }
 
         .subnav a.active {
-            color: var(--navy);
+            color: #fff;
             background: var(--green);
             border-color: var(--green);
         }
@@ -154,7 +181,7 @@
             flex-wrap: wrap;
             position: relative;
             overflow: hidden;
-            color: var(--navy);
+            color: #fff;
         }
 
         .sport-banner.accent-green {
@@ -166,14 +193,14 @@
         }
 
         .sport-banner.accent-cyan {
-            background: var(--grad-cyan);
+            background: var(--grad-teal);
         }
 
         .sport-banner-icon {
             width: 76px;
             height: 76px;
             border-radius: 18px;
-            background: rgba(13, 17, 23, .18);
+            background: rgba(255, 255, 255, .22);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -183,7 +210,7 @@
         .sport-banner-icon svg {
             width: 40px;
             height: 40px;
-            color: var(--navy);
+            color: #fff;
         }
 
         .sport-banner-text {
@@ -245,7 +272,7 @@
         }
 
         .sport-overview p {
-            color: var(--text-dim);
+            color: var(--ink-dim);
             font-size: 15px;
             margin-bottom: 14px;
         }
@@ -261,11 +288,12 @@
             gap: 10px;
             align-items: flex-start;
             font-size: 14px;
-            color: var(--text-dim);
-            background: var(--card);
-            border: 1px solid rgba(255, 255, 255, .06);
+            color: var(--ink-dim);
+            background: var(--surface);
+            border: 1px solid var(--line);
             padding: 12px 14px;
             border-radius: 12px;
+            box-shadow: var(--shadow-sm);
         }
 
         .overview-highlights svg {
@@ -286,7 +314,7 @@
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: .1em;
-            color: var(--cyan);
+            color: var(--teal-deep);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -297,7 +325,7 @@
             content: '';
             width: 16px;
             height: 2px;
-            background: var(--cyan);
+            background: var(--teal);
         }
 
         .age-chips {
@@ -307,32 +335,35 @@
         }
 
         .age-chip {
-            background: var(--card);
-            border: 1px solid rgba(255, 255, 255, .07);
+            background: var(--surface);
+            border: 1px solid var(--line);
             border-radius: 14px;
             padding: 20px;
             text-align: center;
+            box-shadow: var(--shadow-sm);
         }
 
         .age-chip strong {
             display: block;
             font-family: var(--font-display);
             font-size: 20px;
-            color: var(--green-2);
+            color: var(--green-deep);
             margin-bottom: 4px;
         }
 
         .age-chip span {
             font-size: 13px;
-            color: var(--text-dim);
+            color: var(--ink-dim);
         }
 
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
-            background: var(--card);
+            background: var(--surface);
+            border: 1px solid var(--line);
             border-radius: 14px;
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
 
         .schedule-table th,
@@ -343,8 +374,8 @@
         }
 
         .schedule-table th {
-            background: var(--navy-light);
-            color: var(--text-dim);
+            background: var(--bg-alt);
+            color: var(--ink-dim);
             font-family: var(--font-head);
             font-weight: 700;
             text-transform: uppercase;
@@ -353,8 +384,8 @@
         }
 
         .schedule-table td {
-            border-top: 1px solid rgba(255, 255, 255, .06);
-            color: var(--text);
+            border-top: 1px solid var(--line);
+            color: var(--ink);
         }
 
         .schedule-table td:first-child,
@@ -373,10 +404,11 @@
             display: flex;
             gap: 14px;
             align-items: center;
-            background: var(--card);
-            border: 1px solid rgba(255, 255, 255, .07);
+            background: var(--surface);
+            border: 1px solid var(--line);
             border-radius: 14px;
             padding: 16px;
+            box-shadow: var(--shadow-sm);
         }
 
         .sc-coach-avatar {
@@ -389,7 +421,7 @@
             justify-content: center;
             font-family: var(--font-display);
             font-size: 17px;
-            color: var(--navy);
+            color: #fff;
         }
 
         .sc-coach h4 {
@@ -400,7 +432,7 @@
 
         .sc-coach p {
             font-size: 12.5px;
-            color: var(--text-dim);
+            color: var(--ink-dim);
         }
 
         .sg-grid {
@@ -415,7 +447,7 @@
             display: flex;
             align-items: flex-end;
             padding: 12px;
-            border: 1px solid rgba(255, 255, 255, .07);
+            border: 1px solid var(--line);
         }
 
         .sg-tile span {
@@ -435,11 +467,12 @@
         }
 
         .fee-card {
-            background: var(--card);
-            border: 1px solid rgba(255, 255, 255, .07);
+            background: var(--surface);
+            border: 1px solid var(--line);
             border-radius: 16px;
             padding: 24px;
             text-align: center;
+            box-shadow: var(--shadow-sm);
         }
 
         .fee-card.popular {
@@ -453,7 +486,7 @@
             left: 50%;
             transform: translateX(-50%);
             background: var(--grad-sport);
-            color: var(--navy);
+            color: #fff;
             font-family: var(--font-head);
             font-weight: 700;
             font-size: 10.5px;
@@ -472,19 +505,19 @@
         .fee-card__price {
             font-family: var(--font-display);
             font-size: 30px;
-            color: var(--text);
+            color: var(--ink);
         }
 
         .fee-card__price span {
             font-family: var(--font-head);
             font-size: 12px;
-            color: var(--text-dim);
+            color: var(--ink-dim);
             font-weight: 600;
         }
 
         .fee-card p.note {
             font-size: 12.5px;
-            color: var(--text-dim);
+            color: var(--ink-dim);
             margin-top: 8px;
         }
 
@@ -553,6 +586,7 @@
 
     <main>
         <section class="page-hero">
+            <div class="hero-bg"></div>
             <div class="pitch-lines"></div>
             <div class="container">
                 <span class="eyebrow" style="justify-content:center;">Sports We Offer</span>
@@ -736,16 +770,16 @@
                     <h3>Gallery</h3>
                     <div class="sg-grid">
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(34,197,94,.28), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(34,197,94,.28), transparent 70%), var(--surface);">
                             <span>Nets</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(255,107,0,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(255,107,0,.25), transparent 70%), var(--surface);">
                             <span>Match Day</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(0,194,255,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(0,194,255,.25), transparent 70%), var(--surface);">
                             <span>Summer Camp</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--surface);">
                             <span>Trophy Wins</span></div>
                     </div>
                 </div>
@@ -872,7 +906,7 @@
                             </div>
                         </div>
                         <div class="sc-coach">
-                            <div class="sc-coach-avatar" style="background:var(--grad-cyan);">RP</div>
+                            <div class="sc-coach-avatar" style="background:var(--grad-teal);">RP</div>
                             <div>
                                 <h4>Rahul Pawar</h4>
                                 <p>Goalkeeping Coach &middot; 5 yrs experience</p>
@@ -885,16 +919,16 @@
                     <h3>Gallery</h3>
                     <div class="sg-grid">
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(255,107,0,.28), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(255,107,0,.28), transparent 70%), var(--surface);">
                             <span>Training</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(34,197,94,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(34,197,94,.25), transparent 70%), var(--surface);">
                             <span>Match Day</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(0,194,255,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(0,194,255,.25), transparent 70%), var(--surface);">
                             <span>Tournament</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--surface);">
                             <span>Awards</span></div>
                     </div>
                 </div>
@@ -1007,7 +1041,7 @@
                     <h3>Coaches</h3>
                     <div class="sc-coaches">
                         <div class="sc-coach">
-                            <div class="sc-coach-avatar" style="background:var(--grad-cyan);">SV</div>
+                            <div class="sc-coach-avatar" style="background:var(--grad-teal);">SV</div>
                             <div>
                                 <h4>Sanjay Vaidya</h4>
                                 <p>Head Coach, Badminton &middot; 9 yrs experience</p>
@@ -1027,16 +1061,16 @@
                     <h3>Gallery</h3>
                     <div class="sg-grid">
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(0,194,255,.28), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(0,194,255,.28), transparent 70%), var(--surface);">
                             <span>Court Training</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(34,197,94,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(34,197,94,.25), transparent 70%), var(--surface);">
                             <span>Rating Event</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(255,107,0,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(255,107,0,.25), transparent 70%), var(--surface);">
                             <span>Doubles Play</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--surface);">
                             <span>Podium</span></div>
                     </div>
                 </div>
@@ -1169,16 +1203,16 @@
                     <h3>Gallery</h3>
                     <div class="sg-grid">
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(34,197,94,.28), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(34,197,94,.28), transparent 70%), var(--surface);">
                             <span>Court Drills</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(0,194,255,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(0,194,255,.25), transparent 70%), var(--surface);">
                             <span>Ladder Match</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(255,107,0,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(255,107,0,.25), transparent 70%), var(--surface);">
                             <span>Serve Clinic</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--surface);">
                             <span>Trophy Day</span></div>
                     </div>
                 </div>
@@ -1305,16 +1339,16 @@
                     <h3>Gallery</h3>
                     <div class="sg-grid">
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(255,107,0,.28), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(255,107,0,.28), transparent 70%), var(--surface);">
                             <span>Board Session</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(34,197,94,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(34,197,94,.25), transparent 70%), var(--surface);">
                             <span>Rated Event</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(0,194,255,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(0,194,255,.25), transparent 70%), var(--surface);">
                             <span>Puzzle Hour</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--surface);">
                             <span>Trophy Day</span></div>
                     </div>
                 </div>
@@ -1427,7 +1461,7 @@
                     <h3>Coaches</h3>
                     <div class="sc-coaches">
                         <div class="sc-coach">
-                            <div class="sc-coach-avatar" style="background:var(--grad-cyan);">RS</div>
+                            <div class="sc-coach-avatar" style="background:var(--grad-teal);">RS</div>
                             <div>
                                 <h4>Ravindra Shinde</h4>
                                 <p>Sensei &middot; 3rd Dan Black Belt</p>
@@ -1440,16 +1474,16 @@
                     <h3>Gallery</h3>
                     <div class="sg-grid">
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(0,194,255,.28), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(0,194,255,.28), transparent 70%), var(--surface);">
                             <span>Dojo Training</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(34,197,94,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(34,197,94,.25), transparent 70%), var(--surface);">
                             <span>Belt Grading</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(255,107,0,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(255,107,0,.25), transparent 70%), var(--surface);">
                             <span>Kata Demo</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--surface);">
                             <span>Kumite</span></div>
                     </div>
                 </div>
@@ -1578,16 +1612,16 @@
                     <h3>Gallery</h3>
                     <div class="sg-grid">
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(34,197,94,.28), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 20%, rgba(34,197,94,.28), transparent 70%), var(--surface);">
                             <span>Practice Session</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(255,107,0,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 30%, rgba(255,107,0,.25), transparent 70%), var(--surface);">
                             <span>Demonstration</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(0,194,255,.25), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 30% 70%, rgba(0,194,255,.25), transparent 70%), var(--surface);">
                             <span>Festival Event</span></div>
                         <div class="sg-tile reveal"
-                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--card);">
+                            style="background:radial-gradient(200px 140px at 70% 70%, rgba(250,204,21,.22), transparent 70%), var(--surface);">
                             <span>Group Batch</span></div>
                     </div>
                 </div>

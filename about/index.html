@@ -18,15 +18,41 @@
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .page-hero {
-            padding: 170px 0 70px;
+            padding: 200px 0 110px;
             position: relative;
             overflow: hidden;
-            background: radial-gradient(600px 380px at 12% 0%, rgba(34, 197, 94, .16), transparent 70%), radial-gradient(600px 420px at 95% 40%, rgba(255, 107, 0, .12), transparent 70%), var(--navy);
+            isolation: isolate;
             text-align: center;
+            color: #fff;
         }
 
+        .page-hero .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background-image:
+                linear-gradient(180deg, rgba(10, 20, 8, .78) 0%, rgba(10, 20, 8, .58) 45%, rgba(10, 20, 8, .88) 100%),
+                linear-gradient(100deg, rgba(18, 143, 114, .32), rgba(245, 118, 11, .16) 65%),
+                url('/images/gallery/DSC_4491.jpg');
+            background-size: cover;
+            background-position: center 65%;
+        }
+
+        /* subtle pitch-line texture over the photo for brand consistency */
         .page-hero .pitch-lines {
-            opacity: .4;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: .5;
+            background-image: repeating-linear-gradient(90deg, transparent, transparent 119px, rgba(255, 255, 255, .05) 120px);
+        }
+
+        .page-hero .eyebrow {
+            color: var(--orange-bright);
+        }
+
+        .page-hero .eyebrow::before {
+            background: var(--orange-bright);
         }
 
         .page-hero h1 {
@@ -36,12 +62,13 @@
             margin: 16px auto 14px;
             position: relative;
             z-index: 1;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, .35);
         }
 
         .page-hero p {
             max-width: 560px;
             margin: 0 auto;
-            color: var(--text-dim);
+            color: rgba(255, 255, 255, .82);
             font-size: 16.5px;
             position: relative;
             z-index: 1;
@@ -55,14 +82,14 @@
             align-items: center;
             font-family: var(--font-head);
             font-size: 12.5px;
-            color: var(--text-dim);
+            color: rgba(255, 255, 255, .68);
             text-transform: uppercase;
             letter-spacing: .06em;
             margin-top: 14px;
         }
 
         .breadcrumb a:hover {
-            color: var(--green-2);
+            color: #fff;
         }
 
         .breadcrumb .sep {
@@ -70,7 +97,13 @@
         }
 
         .breadcrumb .current {
-            color: var(--text);
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .page-hero {
+                padding: 150px 0 70px;
+            }
         }
 
         .story-sec {
@@ -93,7 +126,7 @@
         }
 
         .story-body p {
-            color: var(--text-dim);
+            color: var(--ink-dim);
             font-size: 15.5px;
             margin-bottom: 16px;
         }
@@ -101,7 +134,7 @@
         .milestones {
             display: flex;
             flex-direction: column;
-            border-left: 2px solid rgba(255, 255, 255, .08);
+            border-left: 2px solid var(--line);
             margin-top: 10px;
         }
 
@@ -123,19 +156,19 @@
             height: 11px;
             border-radius: 50%;
             background: var(--green);
-            box-shadow: 0 0 0 4px rgba(34, 197, 94, .15);
+            box-shadow: 0 0 0 4px var(--green-wash);
         }
 
         .milestone__year {
             font-family: var(--font-display);
             font-size: 15px;
-            color: var(--green-2);
+            color: var(--green-deep);
             letter-spacing: .03em;
         }
 
         .milestone__text {
             font-size: 14.5px;
-            color: var(--text-dim);
+            color: var(--ink-dim);
             margin-top: 4px;
         }
 
@@ -151,12 +184,13 @@
         }
 
         .vm-card {
-            background: var(--card);
-            border: 1px solid rgba(255, 255, 255, .07);
+            background: var(--surface);
+            border: 1px solid var(--line);
             border-radius: 18px;
             padding: 34px 30px;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
 
         .vm-card::before {
@@ -187,13 +221,13 @@
         }
 
         .vm-card.vision .vm-icon {
-            background: rgba(34, 197, 94, .14);
-            color: var(--green);
+            background: var(--green-wash);
+            color: var(--green-deep);
         }
 
         .vm-card.mission .vm-icon {
-            background: rgba(255, 107, 0, .14);
-            color: var(--orange);
+            background: var(--orange-wash);
+            color: var(--orange-deep);
         }
 
         .vm-icon svg {
@@ -208,7 +242,7 @@
         }
 
         .vm-card p {
-            color: var(--text-dim);
+            color: var(--ink-dim);
             font-size: 15px;
         }
 
@@ -223,20 +257,21 @@
         }
 
         .value-card {
-            background: var(--card);
-            border: 1px solid rgba(255, 255, 255, .07);
+            background: var(--surface);
+            border: 1px solid var(--line);
             border-radius: 16px;
             padding: 26px;
             display: flex;
             gap: 16px;
             align-items: flex-start;
+            box-shadow: var(--shadow-sm);
         }
 
         .value-num {
             font-family: var(--font-display);
             font-size: 13px;
             font-weight: 700;
-            color: var(--ice);
+            color: var(--ink-faint);
             flex-shrink: 0;
             padding-top: 3px;
         }
@@ -248,7 +283,7 @@
         }
 
         .value-card p {
-            color: var(--text-dim);
+            color: var(--ink-dim);
             font-size: 14px;
         }
 
@@ -365,6 +400,7 @@
 
     <main>
         <section class="page-hero">
+            <div class="hero-bg"></div>
             <div class="pitch-lines"></div>
             <div class="container">
                 <span class="eyebrow" style="justify-content:center;">About SportifyX</span>

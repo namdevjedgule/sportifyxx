@@ -22,6 +22,7 @@
   --grad-energy: linear-gradient(120deg, var(--orange), var(--orange-bright));
   --grad-teal: linear-gradient(120deg, var(--teal), var(--green));
   --font-display: 'Anton', sans-serif;
+  --font-number: 'Poppins', sans-serif;
   --font-head: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
   --container: 1180px;
@@ -1080,7 +1081,7 @@ header:not(.scrolled) .nav-toggle span {
 
 .program-card__meta strong {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-number);
   font-size: 17px;
   color: var(--ink);
 }
@@ -1505,7 +1506,6 @@ footer {
 
 .footer-brand .logo-img {
   height: 50px;
-  filter: brightness(0) invert(1);
   opacity: .92;
 }
 

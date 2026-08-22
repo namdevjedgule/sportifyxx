@@ -100,130 +100,93 @@
       color: #fff;
     }
 
-    /* ============ MAIN TABS (Events / Sports / Coaching / Venue) ============ */
-    .main-tabs {
-      position: sticky;
-      top: 73px;
-      z-index: 90;
-      background: rgba(22, 33, 13, .95);
-      backdrop-filter: blur(8px);
-      border-top: 1px solid rgba(247, 249, 242, .08);
-      border-bottom: 1px solid rgba(247, 249, 242, .08);
-      padding: 14px 0;
+    /* ============ FILTER BAR ============ */
+    .filter-sec {
+      padding: 48px 0 0;
+      text-align: center;
     }
 
-    .main-tabs-inner {
+    /* Tier 1 - All / Events / Sports / Coaching / Venue */
+    .filter-tier1 {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--bg-alt);
+      padding: 11px 24px;
+      border-radius: 30px;
+      border: 1px solid transparent;
+      transition: background .2s ease, color .2s ease, transform .15s ease;
+    }
+
+    .filter-pill:hover {
+      transform: translateY(-1px);
+      background: var(--green-wash);
+    }
+
+    .filter-pill.active {
+      color: #fff;
+      background: var(--grad-sport);
+      box-shadow: 0 10px 22px -10px rgba(62, 142, 31, .55);
+    }
+
+    .filter-pill .count {
+      opacity: .75;
+      font-weight: 500;
+      margin-left: 3px;
+    }
+
+    /* Tier 2 - subcategories, outlined style */
+    .filter-tier2 {
       display: flex;
       gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 32px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .tab-btn {
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: .02em;
-      color: rgba(247, 249, 242, .7);
-      padding: 9px 22px;
-      border-radius: 20px;
-      border: 1px solid rgba(247, 249, 242, .14);
-      transition: color .2s ease, border-color .2s ease, background .2s ease;
+    .filter-tier2[hidden] {
+      display: none;
     }
 
-    .tab-btn:hover {
-      color: #fff;
-      border-color: rgba(247, 249, 242, .3);
-    }
-
-    .tab-btn.active {
-      color: #fff;
-      background: var(--grad-sport);
-      border-color: transparent;
-    }
-
-    /* ============ SUB TABS (SportifyX Events / Founder Events) ============ */
-    .sub-tabs {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .sub-tab-btn {
+    .filter-pill-outline {
       font-family: var(--font-head);
       font-weight: 600;
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 20px;
+      font-size: 13.5px;
+      color: var(--green-deep);
+      background: transparent;
+      padding: 9px 20px;
+      border-radius: 30px;
       border: 1.5px solid var(--line-strong);
-      color: var(--ink-dim);
-      background: var(--surface);
-      transition: color .2s ease, border-color .2s ease, background .2s ease;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
     }
 
-    .sub-tab-btn:hover {
+    .filter-pill-outline:hover {
       border-color: var(--green);
       color: var(--green-deep);
     }
 
-    .sub-tab-btn.active {
+    .filter-pill-outline.active {
       color: #fff;
-      background: var(--grad-teal);
-      border-color: transparent;
-    }
-
-    /* ============ YEAR FILTER ============ */
-    .year-filter {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-
-    .year-btn {
-      font-family: var(--font-head);
-      font-weight: 600;
-      font-size: 12.5px;
-      padding: 7px 15px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      color: var(--ink-dim);
-      background: var(--bg-alt);
-      transition: color .2s ease, border-color .2s ease, background .2s ease;
-    }
-
-    .year-btn:hover {
-      color: var(--ink);
-      border-color: var(--line-strong);
-    }
-
-    .year-btn.active {
-      color: #fff;
-      background: var(--ink);
-      border-color: var(--ink);
+      background: var(--green);
+      border-color: var(--green);
     }
 
     /* ============ GALLERY GRID / PHOTO TILES ============ */
     .gallery-page-sec {
-      padding: 56px 0 100px;
-    }
-
-    .tab-panel h2.panel-title {
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: 22px;
-      margin-bottom: 6px;
-    }
-
-    .tab-panel p.panel-sub {
-      color: var(--ink-dim);
-      font-size: 14.5px;
-      margin-bottom: 30px;
-      max-width: 560px;
+      padding: 44px 0 100px;
     }
 
     .gallery-page-grid {
@@ -257,7 +220,7 @@
       display: none;
     }
 
-    /* Dark scrim so the tag/play button stay readable over any photo */
+    /* Dark scrim so the tag stays readable over any photo */
     .g-item.has-photo::after {
       content: '';
       position: absolute;
@@ -332,78 +295,6 @@
 
     .gallery-empty.show {
       display: block;
-    }
-
-    /* ============ VENUE GRID ============ */
-    .venue-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .venue-card {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      background: var(--surface);
-    }
-
-    .venue-card-photo {
-      height: 190px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-
-    .venue-card-photo.placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-alt);
-    }
-
-    .venue-card-photo.placeholder svg {
-      width: 38px;
-      height: 38px;
-      color: var(--ink-faint);
-    }
-
-    .venue-card-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 10.5px;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      padding: 5px 12px;
-      border-radius: 20px;
-      color: #fff;
-    }
-
-    .venue-card-badge.open {
-      background: var(--green-deep);
-    }
-
-    .venue-card-badge.soon {
-      background: var(--ink-faint);
-    }
-
-    .venue-card-body {
-      padding: 20px 22px 24px;
-    }
-
-    .venue-card-body h3 {
-      font-size: 19px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .venue-card-body p {
-      font-size: 13.5px;
-      color: var(--ink-dim);
     }
 
     /* ============ LIGHTBOX ============ */
@@ -526,13 +417,8 @@
 
     /* ============ RESPONSIVE ============ */
     @media (max-width: 1024px) {
-
       .gallery-page-grid {
         grid-template-columns: repeat(3, 1fr);
-      }
-
-      .venue-grid {
-        grid-template-columns: 1fr;
       }
     }
 
@@ -541,24 +427,37 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .main-tabs-inner {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding: 0 20px;
-      }
-
       .lightbox-nav-btn {
         display: none;
+      }
+
+      .filter-tier1,
+      .filter-tier2 {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+      }
+
+      .filter-tier1 {
+        margin: 0 -20px;
+        padding: 0 20px 4px;
+      }
+
+      .filter-tier2 {
+        margin: 20px -20px 0;
+        padding: 20px 20px 4px;
+      }
+
+      .filter-pill,
+      .filter-pill-outline {
+        flex-shrink: 0;
       }
     }
 
     @media (max-width: 460px) {
       .page-hero {
         padding: 150px 0 40px;
-      }
-
-      .main-tabs {
-        top: 0;
       }
 
       .gallery-page-grid {
@@ -582,261 +481,232 @@
         <h1>Every <span
             style="background:var(--grad-sport);-webkit-background-clip:text;background-clip:text;color:transparent;">Session</span>,
           Every Season</h1>
-        <p>Events, sports, coaching, and the venues where it all happens - browse by category below.</p>
+        <p>Events, sports, coaching, and the venues where it all happens - filter by category or browse everything.</p>
         <div class="breadcrumb">
           <a href="/">Home</a><span class="sep">/</span><span class="current">Gallery</span>
         </div>
       </div>
     </section>
 
-    <nav class="main-tabs" id="mainTabs">
-      <div class="main-tabs-inner">
-        <button class="tab-btn active" data-tab="events">Events</button>
-        <button class="tab-btn" data-tab="sports">Sports</button>
-        <button class="tab-btn" data-tab="coaching">Coaching</button>
-        <button class="tab-btn" data-tab="venue">Venue</button>
+    <section class="filter-sec">
+      <div class="container">
+        <div class="filter-tier1" id="tier1">
+          <button class="filter-pill active" data-cat="all">All <span class="count"></span></button>
+          <button class="filter-pill" data-cat="events">Events <span class="count"></span></button>
+          <button class="filter-pill" data-cat="sports">Sports <span class="count"></span></button>
+          <button class="filter-pill" data-cat="coaching">Coaching <span class="count"></span></button>
+          <button class="filter-pill" data-cat="venue">Venue <span class="count"></span></button>
+        </div>
+
+        <div class="filter-tier2" data-tier2-for="events" hidden>
+          <button class="filter-pill-outline active" data-sub="all">All <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="sportifyx">SportifyX Events <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="founder">Founder Events <span class="count"></span></button>
+        </div>
+
+        <div class="filter-tier2" data-tier2-for="sports" hidden>
+          <button class="filter-pill-outline active" data-sub="all">All <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="cricket">Cricket <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="football">Football <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="badminton">Badminton <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="lawn-tennis">Lawn Tennis <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="chess">Chess <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="karate">Karate <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="lathi-kathi">Lathi Kathi <span class="count"></span></button>
+        </div>
+
+        <div class="filter-tier2" data-tier2-for="coaching" hidden>
+          <button class="filter-pill-outline active" data-sub="all">All <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="badminton">Badminton <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="cricket">Cricket <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="football">Football <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="lawn-tennis">Lawn Tennis <span class="count"></span></button>
+        </div>
+
+        <div class="filter-tier2" data-tier2-for="venue" hidden>
+          <button class="filter-pill-outline active" data-sub="all">All <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="kharadi">Kharadi <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="viman-nagar">Viman Nagar <span class="count"></span></button>
+          <button class="filter-pill-outline" data-sub="lohegaon">Lohegaon <span class="count"></span></button>
+        </div>
       </div>
-    </nav>
+    </section>
 
     <section class="gallery-page-sec">
       <div class="container">
+        <div class="gallery-page-grid" id="galleryGrid">
 
-        <!-- ============ EVENTS PANEL ============ -->
-        <div class="tab-panel" data-panel="events">
-          <div class="sub-tabs">
-            <button class="sub-tab-btn active" data-subtab="sportifyx">SportifyX Events</button>
-            <button class="sub-tab-btn" data-subtab="founder">Founder Events</button>
+          <!-- ===== EVENTS - SportifyX Events ===== -->
+          <div class="g-item has-photo" data-cat="events" data-sub="sportifyx" data-title="Club 360 Launch"
+            data-desc="Opening moments from the Club 360 football turf and badminton court launch."
+            data-image="/images/gallery/DSC_4477.jpg" style="background-image:url('/images/gallery/DSC_4477.jpg');">
+            <span class="g-item__tag">SportifyX Events</span>
+          </div>
+          <div class="g-item has-photo" data-cat="events" data-sub="sportifyx" data-title="Trophy Presentation"
+            data-desc="A trophy handover moment during one of our academy events."
+            data-image="/images/gallery/DSC_4481.jpg" style="background-image:url('/images/gallery/DSC_4481.jpg');">
+            <span class="g-item__tag">SportifyX Events</span>
+          </div>
+          <div class="g-item has-photo" data-cat="events" data-sub="sportifyx" data-title="Award Presentation"
+            data-desc="Recognition moment shared with the SportifyX team and guests."
+            data-image="/images/gallery/DSC_4419.jpg" style="background-image:url('/images/gallery/DSC_4419.jpg');">
+            <span class="g-item__tag">SportifyX Events</span>
+          </div>
+          <div class="g-item has-photo" data-cat="events" data-sub="sportifyx" data-title="Sapling Exchange"
+            data-desc="A small green gesture shared with guests at a SportifyX event."
+            data-image="/images/gallery/DSC_4530.jpg" style="background-image:url('/images/gallery/DSC_4530.jpg');">
+            <span class="g-item__tag">SportifyX Events</span>
+          </div>
+          <div class="g-item has-photo" data-cat="events" data-sub="sportifyx" data-title="With Our Partners"
+            data-desc="SportifyX team and partners together at an academy event."
+            data-image="/images/gallery/DSC_4533.jpg" style="background-image:url('/images/gallery/DSC_4533.jpg');">
+            <span class="g-item__tag">SportifyX Events</span>
+          </div>
+          <div class="g-item has-photo" data-cat="events" data-sub="sportifyx" data-title="Trophy Day"
+            data-desc="Team photo from a SportifyX trophy celebration." data-image="/images/gallery/DSC_4539.jpg"
+            style="background-image:url('/images/gallery/DSC_4539.jpg');">
+            <span class="g-item__tag">SportifyX Events</span>
+          </div>
+          <div class="g-item has-photo" data-cat="events" data-sub="sportifyx" data-title="Ribbon Cutting"
+            data-desc="Official ribbon-cutting for the Club 360 football turf and badminton courts."
+            data-image="/images/gallery/DSC_4616.jpg" style="background-image:url('/images/gallery/DSC_4616.jpg');">
+            <span class="g-item__tag">SportifyX Events</span>
+          </div>
+          <div class="g-item has-photo" data-cat="events" data-sub="sportifyx" data-title="Special Guest Visit"
+            data-desc="A guest appearance at a SportifyX event, alongside the team."
+            data-image="/images/gallery/DSC_4631.jpg" style="background-image:url('/images/gallery/DSC_4631.jpg');">
+            <span class="g-item__tag">SportifyX Events</span>
           </div>
 
-          <div class="year-filter" data-year-for="sportifyx">
-            <button class="year-btn active" data-year="all">All Years</button>
-            <button class="year-btn" data-year="2026">2026</button>
+          <!-- ===== EVENTS - Founder Events ===== -->
+          <div class="g-item has-photo" data-cat="events" data-sub="founder" data-title="Founder at the Ribbon Cutting"
+            data-desc="Our founder at the official ribbon-cutting for the Club 360 facility."
+            data-image="/images/gallery/DSC_4580.jpg" style="background-image:url('/images/gallery/DSC_4580.jpg');">
+            <span class="g-item__tag">Founder Events</span>
           </div>
-          <div class="year-filter" data-year-for="founder" hidden>
-            <button class="year-btn active" data-year="all">All Years</button>
-            <button class="year-btn" data-year="2026">2026</button>
+          <div class="g-item has-photo" data-cat="events" data-sub="founder" data-title="Founder With the Team"
+            data-desc="Our founder with coaches and guests at a SportifyX event."
+            data-image="/images/gallery/DSC_4590.jpg" style="background-image:url('/images/gallery/DSC_4590.jpg');">
+            <span class="g-item__tag">Founder Events</span>
           </div>
-
-          <div class="gallery-page-grid" data-subpanel="sportifyx">
-            <div class="g-item has-photo" data-year="2026" data-title="Club 360 Launch"
-              data-desc="Opening moments from the Club 360 football turf and badminton court launch."
-              data-image="/images/gallery/DSC_4477.jpg" style="background-image:url('/images/gallery/DSC_4477.jpg');">
-              <span class="g-item__tag">SportifyX Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="Trophy Presentation"
-              data-desc="A trophy handover moment during one of our academy events."
-              data-image="/images/gallery/DSC_4481.jpg" style="background-image:url('/images/gallery/DSC_4481.jpg');">
-              <span class="g-item__tag">SportifyX Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="Award Presentation"
-              data-desc="Recognition moment shared with the SportifyX team and guests."
-              data-image="/images/gallery/DSC_4419.jpg" style="background-image:url('/images/gallery/DSC_4419.jpg');">
-              <span class="g-item__tag">SportifyX Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="Sapling Exchange"
-              data-desc="A small green gesture shared with guests at a SportifyX event."
-              data-image="/images/gallery/DSC_4530.jpg" style="background-image:url('/images/gallery/DSC_4530.jpg');">
-              <span class="g-item__tag">SportifyX Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="With Our Partners"
-              data-desc="SportifyX team and partners together at an academy event."
-              data-image="/images/gallery/DSC_4533.jpg" style="background-image:url('/images/gallery/DSC_4533.jpg');">
-              <span class="g-item__tag">SportifyX Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="Trophy Day"
-              data-desc="Team photo from a SportifyX trophy celebration."
-              data-image="/images/gallery/DSC_4539.jpg" style="background-image:url('/images/gallery/DSC_4539.jpg');">
-              <span class="g-item__tag">SportifyX Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="Ribbon Cutting"
-              data-desc="Official ribbon-cutting for the Club 360 football turf and badminton courts."
-              data-image="/images/gallery/DSC_4616.jpg" style="background-image:url('/images/gallery/DSC_4616.jpg');">
-              <span class="g-item__tag">SportifyX Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="Special Guest Visit"
-              data-desc="A guest appearance at a SportifyX event, alongside the team."
-              data-image="/images/gallery/DSC_4631.jpg" style="background-image:url('/images/gallery/DSC_4631.jpg');">
-              <span class="g-item__tag">SportifyX Events</span>
-            </div>
+          <div class="g-item has-photo" data-cat="events" data-sub="founder" data-title="Founder With the Community"
+            data-desc="Our founder pictured with the wider SportifyX community."
+            data-image="/images/gallery/DSC_4592.jpg" style="background-image:url('/images/gallery/DSC_4592.jpg');">
+            <span class="g-item__tag">Founder Events</span>
           </div>
 
-          <div class="gallery-page-grid" data-subpanel="founder" hidden>
-            <div class="g-item has-photo" data-year="2026" data-title="Founder at the Ribbon Cutting"
-              data-desc="Our founder at the official ribbon-cutting for the Club 360 facility."
-              data-image="/images/gallery/DSC_4580.jpg" style="background-image:url('/images/gallery/DSC_4580.jpg');">
-              <span class="g-item__tag">Founder Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="Founder With the Team"
-              data-desc="Our founder with coaches and guests at a SportifyX event."
-              data-image="/images/gallery/DSC_4590.jpg" style="background-image:url('/images/gallery/DSC_4590.jpg');">
-              <span class="g-item__tag">Founder Events</span>
-            </div>
-            <div class="g-item has-photo" data-year="2026" data-title="Founder With the Community"
-              data-desc="Our founder pictured with the wider SportifyX community."
-              data-image="/images/gallery/DSC_4592.jpg" style="background-image:url('/images/gallery/DSC_4592.jpg');">
-              <span class="g-item__tag">Founder Events</span>
-            </div>
+          <!-- ===== SPORTS ===== -->
+          <div class="g-item placeholder accent-green" data-cat="sports" data-sub="cricket">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M5 19L17 7" />
+              <circle cx="18.5" cy="5.5" r="2.3" />
+              <path d="M5 19l-1 3 3-1" />
+            </svg>
+            <span class="g-item__tag">Cricket</span>
+            <span class="g-item__soon">Photos coming soon</span>
+          </div>
+          <div class="g-item has-photo" data-cat="sports" data-sub="football" data-title="Football"
+            data-desc="Match action from our football batches on the turf." data-image="/images/gallery/DSC_4491.jpg"
+            style="background-image:url('/images/gallery/DSC_4491.jpg');">
+            <span class="g-item__tag">Football</span>
+          </div>
+          <div class="g-item has-photo" data-cat="sports" data-sub="badminton" data-title="Badminton"
+            data-desc="Rally play from our indoor badminton courts." data-image="/images/gallery/DSC_4485.jpg"
+            style="background-image:url('/images/gallery/DSC_4485.jpg');">
+            <span class="g-item__tag">Badminton</span>
+          </div>
+          <div class="g-item placeholder accent-green" data-cat="sports" data-sub="lawn-tennis">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="12" r="7" />
+              <path d="M7 7c3 3 3 7 0 10M17 7c-3 3-3 7 0 10" />
+            </svg>
+            <span class="g-item__tag">Lawn Tennis</span>
+            <span class="g-item__soon">Photos coming soon</span>
+          </div>
+          <div class="g-item placeholder accent-orange" data-cat="sports" data-sub="chess">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="7" r="3" />
+              <path d="M9 12h6l1 5H8z" />
+              <path d="M7 21h10" />
+            </svg>
+            <span class="g-item__tag">Chess</span>
+            <span class="g-item__soon">Photos coming soon</span>
+          </div>
+          <div class="g-item placeholder accent-teal" data-cat="sports" data-sub="karate">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="7" y="9" rx="3" width="10" height="8" />
+              <path d="M7 13H5M9 9V7M12 9V6M15 9V7" />
+            </svg>
+            <span class="g-item__tag">Karate</span>
+            <span class="g-item__soon">Photos coming soon</span>
+          </div>
+          <div class="g-item placeholder accent-green" data-cat="sports" data-sub="lathi-kathi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M4 20L20 4M4 4l16 16" />
+              <circle cx="4" cy="20" r="1.4" />
+              <circle cx="20" cy="4" r="1.4" />
+              <circle cx="4" cy="4" r="1.4" />
+              <circle cx="20" cy="20" r="1.4" />
+            </svg>
+            <span class="g-item__tag">Lathi Kathi</span>
+            <span class="g-item__soon">Photos coming soon</span>
           </div>
 
-          <p class="gallery-empty" id="eventsEmpty">No photos in this category yet - check back soon.</p>
+          <!-- ===== COACHING ===== -->
+          <div class="g-item has-photo" data-cat="coaching" data-sub="badminton" data-title="Badminton Coaching"
+            data-desc="A coaching session on our indoor badminton courts." data-image="/images/gallery/DSC_4422.jpg"
+            style="background-image:url('/images/gallery/DSC_4422.jpg');">
+            <span class="g-item__tag">Badminton</span>
+          </div>
+          <div class="g-item placeholder accent-green" data-cat="coaching" data-sub="cricket">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M5 19L17 7" />
+              <circle cx="18.5" cy="5.5" r="2.3" />
+              <path d="M5 19l-1 3 3-1" />
+            </svg>
+            <span class="g-item__tag">Cricket</span>
+            <span class="g-item__soon">Photos coming soon</span>
+          </div>
+          <div class="g-item has-photo" data-cat="coaching" data-sub="football" data-title="Football Coaching"
+            data-desc="Evening football coaching session on the turf." data-image="/images/gallery/DSC_4494.jpg"
+            style="background-image:url('/images/gallery/DSC_4494.jpg');">
+            <span class="g-item__tag">Football</span>
+          </div>
+          <div class="g-item placeholder accent-green" data-cat="coaching" data-sub="lawn-tennis">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="12" r="7" />
+              <path d="M7 7c3 3 3 7 0 10M17 7c-3 3-3 7 0 10" />
+            </svg>
+            <span class="g-item__tag">Lawn Tennis</span>
+            <span class="g-item__soon">Photos coming soon</span>
+          </div>
+
+          <!-- ===== VENUE ===== -->
+          <div class="g-item has-photo" data-cat="venue" data-sub="kharadi" data-title="Kharadi"
+            data-desc="Our flagship facility - Collab Workspace, 25, 4th Floor, B-Wing, City Vista, Fountain Road, Kharadi, Pune 411014."
+            data-image="/images/gallery/DSC_4380.jpg" style="background-image:url('/images/gallery/DSC_4380.jpg');">
+            <span class="g-item__tag">Kharadi</span>
+          </div>
+          <div class="g-item placeholder accent-teal" data-cat="venue" data-sub="viman-nagar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            <span class="g-item__tag">Viman Nagar</span>
+            <span class="g-item__soon">Coming soon</span>
+          </div>
+          <div class="g-item placeholder accent-teal" data-cat="venue" data-sub="lohegaon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            <span class="g-item__tag">Lohegaon</span>
+            <span class="g-item__soon">Coming soon</span>
+          </div>
+
         </div>
 
-        <!-- ============ SPORTS PANEL ============ -->
-        <div class="tab-panel" data-panel="sports" hidden>
-          <h2 class="panel-title">Sports</h2>
-          <p class="panel-sub">A look at each of our seven disciplines. We're adding real match &amp; training
-            photos for every sport as we shoot them.</p>
-          <div class="gallery-page-grid">
-
-            <div class="g-item placeholder accent-green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <path d="M5 19L17 7" />
-                <circle cx="18.5" cy="5.5" r="2.3" />
-                <path d="M5 19l-1 3 3-1" />
-              </svg>
-              <span class="g-item__tag">Cricket</span>
-              <span class="g-item__soon">Photos coming soon</span>
-            </div>
-
-            <div class="g-item has-photo" data-title="Football" data-desc="Match action from our football batches on the turf."
-              data-image="/images/gallery/DSC_4491.jpg" style="background-image:url('/images/gallery/DSC_4491.jpg');">
-              <span class="g-item__tag">Football</span>
-            </div>
-
-            <div class="g-item has-photo" data-title="Badminton" data-desc="Rally play from our indoor badminton courts."
-              data-image="/images/gallery/DSC_4485.jpg" style="background-image:url('/images/gallery/DSC_4485.jpg');">
-              <span class="g-item__tag">Badminton</span>
-            </div>
-
-            <div class="g-item placeholder accent-green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <circle cx="12" cy="12" r="7" />
-                <path d="M7 7c3 3 3 7 0 10M17 7c-3 3-3 7 0 10" />
-              </svg>
-              <span class="g-item__tag">Lawn Tennis</span>
-              <span class="g-item__soon">Photos coming soon</span>
-            </div>
-
-            <div class="g-item placeholder accent-orange">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <circle cx="12" cy="7" r="3" />
-                <path d="M9 12h6l1 5H8z" />
-                <path d="M7 21h10" />
-              </svg>
-              <span class="g-item__tag">Chess</span>
-              <span class="g-item__soon">Photos coming soon</span>
-            </div>
-
-            <div class="g-item placeholder accent-teal">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <rect x="7" y="9" rx="3" width="10" height="8" />
-                <path d="M7 13H5M9 9V7M12 9V6M15 9V7" />
-              </svg>
-              <span class="g-item__tag">Karate</span>
-              <span class="g-item__soon">Photos coming soon</span>
-            </div>
-
-            <div class="g-item placeholder accent-green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <path d="M4 20L20 4M4 4l16 16" />
-                <circle cx="4" cy="20" r="1.4" />
-                <circle cx="20" cy="4" r="1.4" />
-                <circle cx="4" cy="4" r="1.4" />
-                <circle cx="20" cy="20" r="1.4" />
-              </svg>
-              <span class="g-item__tag">Lathi Kathi</span>
-              <span class="g-item__soon">Photos coming soon</span>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ============ COACHING PANEL ============ -->
-        <div class="tab-panel" data-panel="coaching" hidden>
-          <h2 class="panel-title">Coaching</h2>
-          <p class="panel-sub">Coaching sessions across our most-requested programs.</p>
-          <div class="gallery-page-grid">
-
-            <div class="g-item has-photo" data-title="Badminton Coaching" data-desc="A coaching session on our indoor badminton courts."
-              data-image="/images/gallery/DSC_4422.jpg" style="background-image:url('/images/gallery/DSC_4422.jpg');">
-              <span class="g-item__tag">Badminton</span>
-            </div>
-
-            <div class="g-item placeholder accent-green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <path d="M5 19L17 7" />
-                <circle cx="18.5" cy="5.5" r="2.3" />
-                <path d="M5 19l-1 3 3-1" />
-              </svg>
-              <span class="g-item__tag">Cricket</span>
-              <span class="g-item__soon">Photos coming soon</span>
-            </div>
-
-            <div class="g-item has-photo" data-title="Football Coaching" data-desc="Evening football coaching session on the turf."
-              data-image="/images/gallery/DSC_4494.jpg" style="background-image:url('/images/gallery/DSC_4494.jpg');">
-              <span class="g-item__tag">Football</span>
-            </div>
-
-            <div class="g-item placeholder accent-green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                <circle cx="12" cy="12" r="7" />
-                <path d="M7 7c3 3 3 7 0 10M17 7c-3 3-3 7 0 10" />
-              </svg>
-              <span class="g-item__tag">Lawn Tennis</span>
-              <span class="g-item__soon">Photos coming soon</span>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ============ VENUE PANEL ============ -->
-        <div class="tab-panel" data-panel="venue" hidden>
-          <h2 class="panel-title">Venue</h2>
-          <p class="panel-sub">Where to find us across Pune.</p>
-          <div class="venue-grid">
-
-            <div class="venue-card">
-              <div class="venue-card-photo" style="background-image:url('/images/gallery/DSC_4380.jpg');">
-                <span class="venue-card-badge open">Now Open</span>
-              </div>
-              <div class="venue-card-body">
-                <h3>Kharadi</h3>
-                <p>Our flagship facility - Collab Workspace, 25, 4th Floor, B-Wing, City Vista, Fountain Road,
-                  Kharadi, Pune 411014.</p>
-              </div>
-            </div>
-
-            <div class="venue-card">
-              <div class="venue-card-photo placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-                <span class="venue-card-badge soon">Coming Soon</span>
-              </div>
-              <div class="venue-card-body">
-                <h3>Lohegaon</h3>
-                <p>A new SportifyX venue on the way - full address and photos coming soon.</p>
-              </div>
-            </div>
-
-            <div class="venue-card">
-              <div class="venue-card-photo placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-                <span class="venue-card-badge soon">Coming Soon</span>
-              </div>
-              <div class="venue-card-body">
-                <h3>Viman Nagar</h3>
-                <p>A new SportifyX venue on the way - full address and photos coming soon.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        <p class="gallery-empty" id="galleryEmpty">No photos in this category yet - check back soon.</p>
       </div>
     </section>
 
@@ -870,7 +740,7 @@
         </button>
       </div>
       <div class="lightbox-info">
-        <span class="g-item__tag" id="lbTag">Events</span>
+        <span class="g-item__tag" id="lbTag">Gallery</span>
         <h3 id="lbTitle">Title</h3>
         <p id="lbDesc">Description</p>
       </div>
@@ -894,63 +764,84 @@
   <script src="/js/script.js"></script>
   <script>
     (function () {
-      const mainTabs = document.querySelectorAll('.tab-btn');
-      const panels = document.querySelectorAll('.tab-panel');
+      const items = Array.from(document.querySelectorAll('.g-item'));
+      const tier1Buttons = Array.from(document.querySelectorAll('#tier1 .filter-pill'));
+      const tier2Rows = Array.from(document.querySelectorAll('.filter-tier2'));
+      const emptyMsg = document.getElementById('galleryEmpty');
 
-      function activatePanel(name) {
-        panels.forEach(p => { p.hidden = p.dataset.panel !== name; });
-        mainTabs.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+      let activeCat = 'all';
+      let activeSub = 'all';
+
+      // ---- live counts ----
+      function countItems(cat, sub) {
+        return items.filter(it => {
+          const catMatch = cat === 'all' || it.dataset.cat === cat;
+          const subMatch = sub === 'all' || it.dataset.sub === sub;
+          return catMatch && subMatch;
+        }).length;
       }
 
-      mainTabs.forEach(btn => {
-        btn.addEventListener('click', () => activatePanel(btn.dataset.tab));
+      tier1Buttons.forEach(btn => {
+        const cat = btn.dataset.cat;
+        btn.querySelector('.count').textContent = `(${countItems(cat, 'all')})`;
       });
 
-      // ---- Events sub-tabs (SportifyX Events / Founder Events) ----
-      const subTabs = document.querySelectorAll('.sub-tab-btn');
-      const subGrids = document.querySelectorAll('[data-subpanel]');
-      const yearFilters = document.querySelectorAll('.year-filter');
-      const eventsEmpty = document.getElementById('eventsEmpty');
+      tier2Rows.forEach(row => {
+        const cat = row.dataset.tier2For;
+        row.querySelectorAll('.filter-pill-outline').forEach(btn => {
+          const sub = btn.dataset.sub;
+          const n = sub === 'all' ? countItems(cat, 'all') : countItems(cat, sub);
+          btn.querySelector('.count').textContent = `(${n})`;
+        });
+      });
 
-      function applyYearFilter(subname, year) {
-        const grid = document.querySelector(`.gallery-page-grid[data-subpanel="${subname}"]`);
-        if (!grid) return;
-        const items = grid.querySelectorAll('.g-item');
+      // ---- filtering ----
+      function applyFilter() {
         let visible = 0;
         items.forEach(it => {
-          const match = year === 'all' || it.dataset.year === year;
+          const catMatch = activeCat === 'all' || it.dataset.cat === activeCat;
+          const subMatch = activeCat === 'all' || activeSub === 'all' || it.dataset.sub === activeSub;
+          const match = catMatch && subMatch;
           it.classList.toggle('is-hidden', !match);
           if (match) visible++;
         });
-        if (eventsEmpty) eventsEmpty.classList.toggle('show', visible === 0);
+        emptyMsg.classList.toggle('show', visible === 0);
       }
 
-      function activateSubtab(name) {
-        subGrids.forEach(g => { g.hidden = g.dataset.subpanel !== name; });
-        subTabs.forEach(b => b.classList.toggle('active', b.dataset.subtab === name));
-        yearFilters.forEach(yf => { yf.hidden = yf.dataset.yearFor !== name; });
-        const activeYF = document.querySelector(`.year-filter[data-year-for="${name}"]`);
-        if (activeYF) {
-          activeYF.querySelectorAll('.year-btn').forEach(b => b.classList.toggle('active', b.dataset.year === 'all'));
-        }
-        applyYearFilter(name, 'all');
+      function selectTier1(cat) {
+        activeCat = cat;
+        activeSub = 'all';
+        tier1Buttons.forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+
+        tier2Rows.forEach(row => {
+          const isMatch = row.dataset.tier2For === cat;
+          row.hidden = !isMatch;
+          if (isMatch) {
+            row.querySelectorAll('.filter-pill-outline').forEach(b => b.classList.toggle('active', b.dataset.sub === 'all'));
+          }
+        });
+
+        applyFilter();
       }
 
-      subTabs.forEach(btn => {
-        btn.addEventListener('click', () => activateSubtab(btn.dataset.subtab));
+      tier1Buttons.forEach(btn => {
+        btn.addEventListener('click', () => selectTier1(btn.dataset.cat));
       });
 
-      yearFilters.forEach(yf => {
-        yf.querySelectorAll('.year-btn').forEach(btn => {
+      tier2Rows.forEach(row => {
+        row.querySelectorAll('.filter-pill-outline').forEach(btn => {
           btn.addEventListener('click', () => {
-            yf.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+            activeSub = btn.dataset.sub;
+            row.querySelectorAll('.filter-pill-outline').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            applyYearFilter(yf.dataset.yearFor, btn.dataset.year);
+            applyFilter();
           });
         });
       });
 
-      // ---- Lightbox (scoped to whichever grid is currently visible) ----
+      applyFilter();
+
+      // ---- lightbox (scoped to currently visible items) ----
       const overlay = document.getElementById('lightbox');
       const lbTag = document.getElementById('lbTag');
       const lbTitle = document.getElementById('lbTitle');
@@ -959,9 +850,8 @@
       let currentItems = [];
       let currentIndex = 0;
 
-      function getVisiblePhotoItems(fromItem) {
-        const panel = fromItem.closest('.tab-panel');
-        return Array.from(panel.querySelectorAll('.g-item.has-photo:not(.is-hidden)'));
+      function getVisiblePhotoItems() {
+        return items.filter(it => it.classList.contains('has-photo') && !it.classList.contains('is-hidden'));
       }
 
       function showIndex(i) {
@@ -981,9 +871,9 @@
         document.body.style.overflow = '';
       }
 
-      document.querySelectorAll('.g-item.has-photo').forEach(item => {
+      items.filter(it => it.classList.contains('has-photo')).forEach(item => {
         item.addEventListener('click', () => {
-          currentItems = getVisiblePhotoItems(item);
+          currentItems = getVisiblePhotoItems();
           showIndex(currentItems.indexOf(item));
         });
       });

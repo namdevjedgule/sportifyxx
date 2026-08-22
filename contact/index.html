@@ -7,7 +7,7 @@
   <title>Contact Us - SportifyX</title>
   <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
   <meta name="description"
-    content="Get in touch with SportifyX - book a free trial session, ask about coaching programs, or find our Nashik location, phone, email, and working hours.">
+    content="Get in touch with SportifyX - book a free trial session, ask about coaching programs, or find our Kharadi, Pune location, phone, email, and working hours.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,15 +17,40 @@
   <link rel="stylesheet" href="/css/style.css">
   <style>
     .page-hero {
-      padding: 170px 0 60px;
+      padding: 190px 0 90px;
       position: relative;
       overflow: hidden;
-      background: radial-gradient(600px 380px at 12% 0%, rgba(34, 197, 94, .16), transparent 70%), radial-gradient(600px 420px at 95% 40%, rgba(255, 107, 0, .12), transparent 70%), var(--navy);
+      isolation: isolate;
       text-align: center;
+      color: #fff;
+    }
+
+    .page-hero .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(180deg, rgba(10, 20, 8, .78) 0%, rgba(10, 20, 8, .58) 45%, rgba(10, 20, 8, .88) 100%),
+        linear-gradient(100deg, rgba(18, 143, 114, .3), rgba(245, 118, 11, .18) 65%),
+        url('/images/gallery/DSC_4423.jpg');
+      background-size: cover;
+      background-position: center 30%;
     }
 
     .page-hero .pitch-lines {
-      opacity: .4;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .5;
+      background-image: repeating-linear-gradient(90deg, transparent, transparent 119px, rgba(255, 255, 255, .05) 120px);
+    }
+
+    .page-hero .eyebrow {
+      color: var(--orange-bright);
+    }
+
+    .page-hero .eyebrow::before {
+      background: var(--orange-bright);
     }
 
     .page-hero h1 {
@@ -35,12 +60,13 @@
       margin: 16px auto 14px;
       position: relative;
       z-index: 1;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, .35);
     }
 
     .page-hero p {
       max-width: 560px;
       margin: 0 auto;
-      color: var(--text-dim);
+      color: rgba(255, 255, 255, .82);
       font-size: 16.5px;
       position: relative;
       z-index: 1;
@@ -54,14 +80,14 @@
       align-items: center;
       font-family: var(--font-head);
       font-size: 12.5px;
-      color: var(--text-dim);
+      color: rgba(255, 255, 255, .68);
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-top: 14px;
     }
 
     .breadcrumb a:hover {
-      color: var(--green-2);
+      color: #fff;
     }
 
     .breadcrumb .sep {
@@ -69,7 +95,7 @@
     }
 
     .breadcrumb .current {
-      color: var(--text);
+      color: #fff;
     }
 
     .contact-main-sec {
@@ -84,10 +110,11 @@
     }
 
     .form-card {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .07);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 20px;
       padding: 36px;
+      box-shadow: var(--shadow-sm);
     }
 
     .form-card h2 {
@@ -97,7 +124,7 @@
     }
 
     .form-card>p {
-      color: var(--text-dim);
+      color: var(--ink-dim);
       font-size: 14.5px;
       margin-bottom: 26px;
     }
@@ -120,7 +147,7 @@
       font-family: var(--font-head);
       font-size: 13px;
       font-weight: 600;
-      color: var(--text-dim);
+      color: var(--ink-dim);
     }
 
     .form-field input,
@@ -128,9 +155,9 @@
     .form-field textarea {
       font-family: var(--font-body);
       font-size: 14.5px;
-      color: var(--text);
-      background: var(--navy-light);
-      border: 1px solid rgba(255, 255, 255, .1);
+      color: var(--ink);
+      background: var(--bg-alt);
+      border: 1px solid var(--line-strong);
       border-radius: 10px;
       padding: 12px 14px;
       outline: none;
@@ -162,16 +189,16 @@
 
     .form-note {
       font-size: 12.5px;
-      color: var(--ice);
+      color: var(--ink-faint);
     }
 
     .form-success {
       display: none;
       align-items: center;
       gap: 12px;
-      background: rgba(34, 197, 94, .12);
-      border: 1px solid rgba(34, 197, 94, .35);
-      color: var(--green-2);
+      background: var(--green-wash);
+      border: 1px solid var(--green-bright);
+      color: var(--green-deep);
       padding: 14px 18px;
       border-radius: 12px;
       font-size: 14px;
@@ -195,10 +222,11 @@
     }
 
     .info-card {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .07);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 16px;
       padding: 22px;
+      box-shadow: var(--shadow-sm);
     }
 
     .info-card h4 {
@@ -207,7 +235,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .06em;
-      color: var(--text-dim);
+      color: var(--ink-dim);
       margin-bottom: 14px;
     }
 
@@ -238,30 +266,30 @@
     }
 
     .info-icon.green {
-      background: rgba(34, 197, 94, .14);
-      color: var(--green);
+      background: var(--green-wash);
+      color: var(--green-deep);
     }
 
     .info-icon.orange {
-      background: rgba(255, 107, 0, .14);
-      color: var(--orange);
+      background: var(--orange-wash);
+      color: var(--orange-deep);
     }
 
     .info-icon.cyan {
-      background: rgba(0, 194, 255, .14);
-      color: var(--cyan);
+      background: var(--teal-wash);
+      color: var(--teal-deep);
     }
 
     .info-row a,
     .info-row p {
       font-size: 14px;
-      color: var(--text);
+      color: var(--ink);
     }
 
     .info-row span.sub {
       display: block;
       font-size: 12px;
-      color: var(--text-dim);
+      color: var(--ink-dim);
       margin-top: 2px;
     }
 
@@ -270,7 +298,7 @@
       align-items: center;
       gap: 14px;
       background: rgba(37, 211, 102, .1);
-      border: 1px solid rgba(37, 211, 102, .3);
+      border: 1px solid rgba(37, 211, 102, .35);
       border-radius: 16px;
       padding: 18px 20px;
     }
@@ -295,13 +323,13 @@
     .whatsapp-card h4 {
       font-size: 14.5px;
       font-weight: 700;
-      color: var(--text);
+      color: var(--ink);
       margin-bottom: 2px;
     }
 
     .whatsapp-card p {
       font-size: 12.5px;
-      color: var(--text-dim);
+      color: var(--ink-dim);
     }
 
     .whatsapp-card-link {
@@ -318,17 +346,17 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: var(--navy-light);
+      background: var(--bg-alt);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-dim);
+      color: var(--ink-dim);
       transition: color .2s ease, background .2s ease;
     }
 
     .social-row-lg a:hover {
-      color: var(--cyan);
-      background: rgba(0, 194, 255, .1);
+      color: var(--teal-deep);
+      background: var(--teal-wash);
     }
 
     .social-row-lg svg {
@@ -341,7 +369,7 @@
       justify-content: space-between;
       font-size: 13.5px;
       padding: 8px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      border-bottom: 1px solid var(--line);
     }
 
     .hours-row:last-child {
@@ -349,11 +377,11 @@
     }
 
     .hours-row span:first-child {
-      color: var(--text-dim);
+      color: var(--ink-dim);
     }
 
     .hours-row span:last-child {
-      color: var(--text);
+      color: var(--ink);
       font-weight: 600;
     }
 
@@ -365,8 +393,9 @@
     .map-frame {
       border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .08);
+      border: 1px solid var(--line);
       min-height: 380px;
+      box-shadow: var(--shadow-sm);
     }
 
     .map-frame iframe {
@@ -412,6 +441,7 @@
 
   <main>
     <section class="page-hero">
+      <div class="hero-bg"></div>
       <div class="pitch-lines"></div>
       <div class="container">
         <span class="eyebrow" style="justify-content:center;">Contact Us</span>
@@ -500,7 +530,7 @@
               <h4>Chat on WhatsApp</h4>
               <p>Fastest way to reach us</p>
             </div>
-            <a class="whatsapp-card-link btn btn-outline" href="https://wa.me/919876543210" target="_blank"
+            <a class="whatsapp-card-link btn btn-outline" href="https://wa.me/919823087877" target="_blank"
               rel="noopener">Message Us</a>
           </div>
 
@@ -588,7 +618,7 @@
 
   </main>
 
-  <a class="whatsapp-float" href="https://wa.me/919876543210" target="_blank" rel="noopener"
+  <a class="whatsapp-float" href="https://wa.me/919823087877" target="_blank" rel="noopener"
     aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path

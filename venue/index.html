@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Booking - SportifyX</title>
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+    <meta name="description"
+        content="Book football turf and badminton courts at SportifyX venues across Pune - Kharadi, Lohegaon, and Viman Nagar. Facilities, hourly rates, and availability.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* ============ HERO ============ */
+        .page-hero {
+            padding: 190px 0 60px;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            text-align: center;
+            color: #fff;
+        }
+
+        .page-hero .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background-image:
+                linear-gradient(180deg, rgba(10, 20, 8, .78) 0%, rgba(10, 20, 8, .58) 45%, rgba(10, 20, 8, .88) 100%),
+                linear-gradient(100deg, rgba(18, 143, 114, .3), rgba(245, 118, 11, .18) 65%),
+                url('/images/gallery/DSC_4380.jpg');
+            background-size: cover;
+            background-position: center 55%;
+        }
+
+        .page-hero .pitch-lines {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: .5;
+            background-image: repeating-linear-gradient(90deg, transparent, transparent 119px, rgba(255, 255, 255, .05) 120px);
+        }
+
+        .page-hero .eyebrow {
+            color: var(--orange-bright);
+        }
+
+        .page-hero .eyebrow::before {
+            background: var(--orange-bright);
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5.6vw, 64px);
+            text-transform: uppercase;
+            margin: 16px auto 14px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, .35);
+        }
+
+        .page-hero p {
+            max-width: 560px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, .82);
+            font-size: 16.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            font-family: var(--font-head);
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, .68);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-top: 14px;
+        }
+
+        .breadcrumb a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb .sep {
+            opacity: .5;
+        }
+
+        .breadcrumb .current {
+            color: #fff;
+        }
+
+        /* ============ SUBNAV ============ */
+        .subnav {
+            position: sticky;
+            top: 73px;
+            z-index: 90;
+            background: rgba(22, 33, 13, .95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(247, 249, 242, .08);
+            border-top: 1px solid rgba(247, 249, 242, .08);
+        }
+
+        .subnav-inner {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 14px 32px;
+            max-width: 1180px;
+            margin: 0 auto;
+            scrollbar-width: none;
+        }
+
+        .subnav-inner::-webkit-scrollbar {
+            display: none;
+        }
+
+        .subnav a {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 13px;
+            color: rgba(247, 249, 242, .7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(247, 249, 242, .12);
+            transition: color .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .subnav a svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .subnav a:hover {
+            color: #fff;
+            border-color: rgba(247, 249, 242, .3);
+        }
+
+        .subnav a.active {
+            color: #fff;
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        /* ============ VENUE SECTIONS ============ */
+        .venue-section {
+            padding: 80px 0;
+            scroll-margin-top: 130px;
+        }
+
+        .venue-section:nth-of-type(even) {
+            background: var(--surface);
+        }
+
+        .venue-banner {
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .venue-banner.accent-green {
+            background: var(--grad-sport);
+        }
+
+        .venue-banner.accent-orange {
+            background: var(--grad-energy);
+        }
+
+        .venue-banner.accent-teal {
+            background: var(--grad-teal);
+        }
+
+        .venue-banner-icon {
+            width: 76px;
+            height: 76px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .venue-banner-icon svg {
+            width: 40px;
+            height: 40px;
+            color: #fff;
+        }
+
+        .venue-banner-text {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .venue-banner-text .vb-eyebrow {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            opacity: .8;
+        }
+
+        .venue-banner-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(26px, 3.2vw, 38px);
+            text-transform: uppercase;
+            margin: 6px 0 6px;
+        }
+
+        .venue-banner-text p {
+            font-size: 14.5px;
+            max-width: 460px;
+            opacity: .9;
+        }
+
+        .venue-banner-stats {
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+
+        .venue-banner-stats div {
+            text-align: center;
+        }
+
+        .venue-banner-stats strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 22px;
+        }
+
+        .venue-banner-stats span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            opacity: .85;
+        }
+
+        .venue-overview {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            margin-top: 44px;
+            align-items: start;
+        }
+
+        .venue-overview p {
+            color: var(--ink-dim);
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        .overview-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .overview-highlights li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 14px;
+            color: var(--ink-dim);
+            background: var(--surface);
+            border: 1px solid var(--line);
+            padding: 12px 14px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .overview-highlights svg {
+            width: 17px;
+            height: 17px;
+            color: var(--green);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .sub-block {
+            margin-top: 46px;
+        }
+
+        .sub-block h3 {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--teal-deep);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .sub-block h3::before {
+            content: '';
+            width: 16px;
+            height: 2px;
+            background: var(--teal);
+        }
+
+        .facility-chips {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .facility-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px 18px;
+            font-size: 13.5px;
+            font-weight: 600;
+            font-family: var(--font-head);
+            color: var(--ink);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .facility-chip svg {
+            width: 19px;
+            height: 19px;
+            color: var(--green-deep);
+            flex-shrink: 0;
+        }
+
+        .rate-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .rate-table th,
+        .rate-table td {
+            padding: 14px 18px;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        .rate-table th {
+            background: var(--bg-alt);
+            color: var(--ink-dim);
+            font-family: var(--font-head);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11.5px;
+            letter-spacing: .05em;
+        }
+
+        .rate-table td {
+            border-top: 1px solid var(--line);
+            color: var(--ink);
+        }
+
+        .rate-table td:first-child,
+        .rate-table th:first-child {
+            font-family: var(--font-head);
+            font-weight: 600;
+        }
+
+        .rate-note {
+            font-size: 12.5px;
+            color: var(--ink-faint);
+            margin-top: 12px;
+        }
+
+        .sg-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .sg-tile {
+            height: 150px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-end;
+            padding: 12px;
+            border: 1px solid var(--line);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sg-tile::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 45%, rgba(6, 9, 13, .75) 100%);
+        }
+
+        .sg-tile span {
+            position: relative;
+            z-index: 1;
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 12px;
+            color: #fff;
+            background: rgba(13, 17, 23, .55);
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .register-row {
+            text-align: center;
+            margin-top: 40px;
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============ COMING SOON VENUES ============ */
+        .venue-teaser-body {
+            margin-top: 30px;
+            max-width: 680px;
+        }
+
+        .venue-teaser-body p {
+            color: var(--ink-dim);
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .venue-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .facility-chips {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sg-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .facility-chips {
+                grid-template-columns: 1fr;
+            }
+
+            .sg-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .venue-banner {
+                padding: 28px;
+            }
+
+            .venue-banner-stats {
+                gap: 18px;
+            }
+
+            .rate-table {
+                font-size: 12px;
+            }
+
+            .page-hero {
+                padding: 150px 0 40px;
+            }
+
+            .subnav {
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <div id="navbar"></div>
+
+    <main>
+        <section class="page-hero">
+            <div class="hero-bg"></div>
+            <div class="pitch-lines"></div>
+            <div class="container">
+                <span class="eyebrow" style="justify-content:center;">Venue Booking</span>
+                <h1>Book Your <span
+                        style="background:var(--grad-sport);-webkit-background-clip:text;background-clip:text;color:transparent;">Turf
+                        &amp; Court</span> Time</h1>
+                <p>Football turf and badminton courts, available by the hour across our Pune venues - pick a
+                    location below to see facilities, rates, and availability.</p>
+                <div class="breadcrumb">
+                    <a href="/">Home</a><span class="sep">/</span><span class="current">Venue</span>
+                </div>
+            </div>
+        </section>
+
+        <nav class="subnav" id="subnav">
+            <div class="subnav-inner" id="subnavInner">
+                <a href="#kharadi" data-target="kharadi">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+                        <circle cx="12" cy="10" r="2.5" />
+                    </svg>
+                    Kharadi
+                </a>
+                <a href="#lohegaon" data-target="lohegaon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+                        <circle cx="12" cy="10" r="2.5" />
+                    </svg>
+                    Lohegaon
+                </a>
+                <a href="#viman-nagar" data-target="viman-nagar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+                        <circle cx="12" cy="10" r="2.5" />
+                    </svg>
+                    Viman Nagar
+                </a>
+            </div>
+        </nav>
+
+        <!-- ============ KHARADI (operational) ============ -->
+        <section class="venue-section" id="kharadi">
+            <div class="container">
+                <div class="venue-banner accent-green reveal">
+                    <div class="venue-banner-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+                            <circle cx="12" cy="10" r="2.5" />
+                        </svg>
+                    </div>
+                    <div class="venue-banner-text">
+                        <span class="vb-eyebrow">Flagship Venue</span>
+                        <h2>Kharadi</h2>
+                        <p>Our main facility - a full-size football turf and four indoor badminton courts, open
+                            daily.</p>
+                    </div>
+                    <div class="venue-banner-stats">
+                        <div><strong>1</strong><span>Football Turf</span></div>
+                        <div><strong>4</strong><span>Badminton Courts</span></div>
+                        <div><strong>Open</strong><span>Status</span></div>
+                    </div>
+                </div>
+
+                <div class="venue-overview">
+                    <div>
+                        <p>SportifyX Kharadi is a Club 360 facility built for both casual play and serious
+                            training - a full-size football turf for 5-a-side and 7-a-side games, plus four
+                            indoor wooden badminton courts that run year-round regardless of weather.</p>
+                        <p>Slots are available by the hour, seven days a week. Whether it's a Sunday match with
+                            friends or a weekday badminton session, you can book directly or reach out on
+                            WhatsApp to check live availability.</p>
+                    </div>
+                    <ul class="overview-highlights">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>Full-size outdoor football turf</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>4 indoor wooden badminton courts</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg>Open 6:00 AM &ndash; 11:00 PM daily</li>
+                    </ul>
+                </div>
+
+                <div class="sub-block">
+                    <h3>Facilities</h3>
+                    <div class="facility-chips">
+                        <div class="facility-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <circle cx="12" cy="12" r="9" />
+                                <path d="M12 7l4 3-1.5 4.5h-5L8 10z" />
+                            </svg>Football Turf</div>
+                        <div class="facility-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <circle cx="9" cy="9" r="5.5" />
+                                <path d="M13 13l7 7M15 20l5-5" />
+                            </svg>Badminton Courts</div>
+                        <div class="facility-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M5 8h14M5 8a2 2 0 012-2h10a2 2 0 012 2M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8" />
+                            </svg>Changing Rooms</div>
+                        <div class="facility-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <rect x="3" y="7" width="18" height="12" rx="2" />
+                                <path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2" />
+                            </svg>On-Site Parking</div>
+                        <div class="facility-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M12 2v6M8 5l4-3 4 3M6 22h12M8 22c0-5 1-8 4-9 3 1 4 4 4 9" />
+                            </svg>Drinking Water</div>
+                        <div class="facility-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <circle cx="8" cy="9" r="3" />
+                                <circle cx="17" cy="9" r="3" />
+                                <path d="M2 20c0-3 2.7-5 6-5s6 2 6 5M13 15c3.3 0 6 2 6 5" />
+                            </svg>Seating &amp; Lounge Area</div>
+                    </div>
+                </div>
+
+                <div class="sub-block">
+                    <h3>Hourly Rates</h3>
+                    <table class="rate-table">
+                        <tr>
+                            <th>Facility</th>
+                            <th>Weekday</th>
+                            <th>Weekend</th>
+                        </tr>
+                        <tr>
+                            <td>Football Turf (per hour)</td>
+                            <td>&#8377;1,200</td>
+                            <td>&#8377;1,600</td>
+                        </tr>
+                        <tr>
+                            <td>Badminton Court (per hour)</td>
+                            <td>&#8377;300</td>
+                            <td>&#8377;400</td>
+                        </tr>
+                    </table>
+                    <p class="rate-note">Rates shown are indicative and may vary by time slot - contact us to
+                        confirm current pricing and check live availability.</p>
+                </div>
+
+                <div class="sub-block">
+                    <h3>Gallery</h3>
+                    <div class="sg-grid">
+                        <div class="sg-tile reveal" style="background-image:url('/images/gallery/DSC_4380.jpg');">
+                            <span>Football Turf</span></div>
+                        <div class="sg-tile reveal" style="background-image:url('/images/gallery/DSC_4550.jpg');">
+                            <span>Badminton Courts</span></div>
+                        <div class="sg-tile reveal" style="background-image:url('/images/gallery/DSC_4491.jpg');">
+                            <span>Match Day</span></div>
+                        <div class="sg-tile reveal" style="background-image:url('/images/gallery/DSC_4616.jpg');">
+                            <span>Facility Launch</span></div>
+                    </div>
+                </div>
+
+                <div class="register-row">
+                    <a href="/contact/" class="btn btn-primary">Book This Venue</a>
+                    <a href="https://wa.me/919823087877" target="_blank" rel="noopener" class="btn btn-outline">Check
+                        Availability on WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ LOHEGAON (coming soon) ============ -->
+        <section class="venue-section" id="lohegaon">
+            <div class="container">
+                <div class="venue-banner accent-orange reveal">
+                    <div class="venue-banner-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+                            <circle cx="12" cy="10" r="2.5" />
+                        </svg>
+                    </div>
+                    <div class="venue-banner-text">
+                        <span class="vb-eyebrow">New Venue</span>
+                        <h2>Lohegaon</h2>
+                        <p>A new SportifyX venue on the way for Pune's eastern suburbs.</p>
+                    </div>
+                    <div class="venue-banner-stats">
+                        <div><strong>Coming</strong><span>Soon</span></div>
+                    </div>
+                </div>
+
+                <div class="venue-teaser-body">
+                    <p>We're building our second Pune venue in Lohegaon, bringing the same football turf and
+                        badminton court setup closer to families and teams on the eastern side of the city.</p>
+                    <p>Full address, facility details, and booking rates will be published here as soon as the
+                        venue is ready. Register your interest and we'll notify you the moment slots open.</p>
+                </div>
+
+                <div class="register-row">
+                    <a href="/contact/" class="btn btn-primary">Register Your Interest</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ VIMAN NAGAR (coming soon) ============ -->
+        <section class="venue-section" id="viman-nagar">
+            <div class="container">
+                <div class="venue-banner accent-teal reveal">
+                    <div class="venue-banner-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <path d="M12 21s-7-5.2-7-11a7 7 0 0114 0c0 5.8-7 11-7 11z" />
+                            <circle cx="12" cy="10" r="2.5" />
+                        </svg>
+                    </div>
+                    <div class="venue-banner-text">
+                        <span class="vb-eyebrow">New Venue</span>
+                        <h2>Viman Nagar</h2>
+                        <p>A new SportifyX venue on the way in Viman Nagar.</p>
+                    </div>
+                    <div class="venue-banner-stats">
+                        <div><strong>Coming</strong><span>Soon</span></div>
+                    </div>
+                </div>
+
+                <div class="venue-teaser-body">
+                    <p>Our third Pune venue is planned for Viman Nagar, extending the same turf and court
+                        booking experience to another part of the city.</p>
+                    <p>Full address, facility details, and booking rates will be published here as soon as the
+                        venue is ready. Register your interest and we'll notify you the moment slots open.</p>
+                </div>
+
+                <div class="register-row">
+                    <a href="/contact/" class="btn btn-primary">Register Your Interest</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" id="join">
+            <div class="container">
+                <span class="eyebrow" style="justify-content:center;">Questions About Booking?</span>
+                <h2>We'll Help You Find a Slot</h2>
+                <p>Not sure which venue or time works best? Message us and we'll help you book the right slot.</p>
+                <div class="cta-actions">
+                    <a href="/contact/" class="btn btn-primary">Contact Us</a>
+                    <a href="/sports/" class="btn btn-outline">Browse All Sports</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <a class="whatsapp-float" href="https://wa.me/919823087877" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.2 1.2-1.7 1.3-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.3-.3.6-.3.8-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.4 0 .6-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.6-.7c.2-.3.4-.2.7-.1l1.6.8c.2.1.4.2.5.3.1.2.1.9-.1 1.4z" />
+        </svg>
+    </a>
+
+    <div id="footer"></div>
+    <script src="/js/script.js"></script>
+    <script>
+        (function () {
+            const links = Array.from(document.querySelectorAll('#subnavInner a'));
+            const sections = links.map(l => document.getElementById(l.dataset.target));
+
+            function onScroll() {
+                let current = sections[0];
+                sections.forEach(sec => {
+                    if (sec && window.scrollY >= sec.offsetTop - 160) current = sec;
+                });
+                links.forEach(l => l.classList.remove('active'));
+                const match = links.find(l => l.dataset.target === (current && current.id));
+                if (match) match.classList.add('active');
+            }
+
+            window.addEventListener('load', () => {
+                onScroll();
+                window.addEventListener('scroll', onScroll, { passive: true });
+            });
+        })();
+    </script>
+</body>
+
+</html>

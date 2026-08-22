@@ -894,22 +894,22 @@ header:not(.scrolled) .nav-toggle span {
   gap: 12px;
 }
 
-.sport-card-inner svg {
+.sport-card-inner i {
   width: 30px;
   height: 30px;
 }
 
-.sport-card.accent-green svg,
+.sport-card.accent-green i,
 .sport-card.accent-green .sport-link {
   color: var(--green-deep);
 }
 
-.sport-card.accent-orange svg,
+.sport-card.accent-orange i,
 .sport-card.accent-orange .sport-link {
   color: var(--orange-deep);
 }
 
-.sport-card.accent-teal svg,
+.sport-card.accent-teal i,
 .sport-card.accent-teal .sport-link {
   color: var(--teal-deep);
 }
